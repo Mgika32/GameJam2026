@@ -15,7 +15,7 @@ def to_string(sep = " ") -> str:
     for i in range(len(maps[0])):
         for j in range(len(maps)):
             current = str(maps[j][i])
-            if current == "0": current = "  "
+            # if current == "0": current = "  "
             while len(current) < 2: current = "0" + current
             result += current + sep
         result = result[:-1] + "\n"
