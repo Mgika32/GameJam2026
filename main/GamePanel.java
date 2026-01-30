@@ -1,13 +1,12 @@
 package main;
 
+import Entity.Player;
+import Mask.MultiMask;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-
-import Entity.Player;
-import Mask.MultiMask;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -30,14 +29,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //INSTANCE
 
-    Player player1 = new Player();
-
     MultiMask mask0 = new MultiMask();
-
-    // Positions du joueur par défaut
-    int playerX = 100;
-    int playerY = 100;
-    int playerSpeed = 4;
 
 
     public GamePanel() {
