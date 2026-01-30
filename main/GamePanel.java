@@ -7,6 +7,7 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
 import Entity.Player;
+import Mask.MultiMask;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -29,6 +30,8 @@ public class GamePanel extends JPanel implements Runnable{
     //INSTANCE
 
     Player player1 = new Player();
+
+    MultiMask mask0 = new MultiMask();
 
     // Positions du joueur par défaut
     int playerX = 100;
@@ -107,6 +110,8 @@ public class GamePanel extends JPanel implements Runnable{
         g2.setColor(Color.white);
 
         g2.fillRect(playerX, playerY, tileSize, tileSize);
+        
+        mask0.draw(g2, this);
 
         g2.dispose();
 

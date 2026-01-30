@@ -9,11 +9,15 @@ public class MultiMask extends SuperMask{
 
     public MultiMask() {
         name = "MultiMask";
+        x = 8;
+        y = 16;
+         
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/res/Mask/MultiMask.png"));
             
         } catch (IOException e) {
             e.printStackTrace();
         }  
+        
     }
 }

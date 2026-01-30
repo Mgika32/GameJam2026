@@ -21,8 +21,8 @@ public class SuperMask {
     
 
     public void draw(Graphics2D g2, GamePanel gp) {
-        
-        g2.drawImage(image , y, x, gp.tileSize, gp.tileSize, null);
+
+        g2.drawImage(image , y*gp.tileSize, x*gp.tileSize, gp.tileSize, gp.tileSize, null);
 
     }
 
