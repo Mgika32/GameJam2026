@@ -90,7 +90,10 @@ public class GamePanel extends JPanel implements Runnable{
 
         player.draw(g2);
         
-        mask0.draw(g2, this);
+        if (mask0.spawn == true) {
+            mask0.draw(g2, this);
+        }
+        
 
         g2.dispose();
 

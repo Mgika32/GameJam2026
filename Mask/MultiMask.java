@@ -11,6 +11,7 @@ public class MultiMask extends SuperMask{
         name = "MultiMask";
         x = 8;
         y = 16;
+        spawn = true;
          
         try {
             image = ImageIO.read(getClass().getResourceAsStream("/res/Mask/MultiMask.png"));
