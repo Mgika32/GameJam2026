@@ -26,6 +26,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+    Player player = new Player(this, keyH);
 
     //INSTANCE
 
@@ -86,19 +87,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
 
-        if (keyH.upPressed == true) {
-            playerY -= playerSpeed;
-        }
-        if (keyH.downPressed == true) {
-            playerY += playerSpeed;
-        }
-        if (keyH.leftPressed == true) {
-            playerX -= playerSpeed;
-        }
-        if (keyH.rightPressed == true) {
-            playerX += playerSpeed;
-        }
-
+        
     }
 
     public void paintComponent(Graphics g) {
@@ -107,9 +96,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
-        g2.setColor(Color.white);
-
-        g2.fillRect(playerX, playerY, tileSize, tileSize);
+        player.draw(g2);
         
         mask0.draw(g2, this);
 
