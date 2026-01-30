@@ -2,14 +2,12 @@ package main;
 
 import Entity.Player;
 import Mask.MultiMask;
-import tile.Tile;
-import tile.TileManager;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -18,11 +16,12 @@ public class GamePanel extends JPanel implements Runnable{
     final int scale = 1; 
 
     public final int tileSize = originalTileSize * scale; //32
-    final int maxScreenCol = 50; // largeur
-    final int maxScreenRow = 30; // longueur
-    final int screenWidth = tileSize * maxScreenCol; // 768 pixels largeur d'écran
-    final int screenHeight = tileSize * maxScreenRow; // 576 pixels longueur d'écran
+    public final int maxScreenCol = 50; // largeur
+    public final int maxScreenRow = 30; // longueur
+    public final int screenWidth = tileSize * maxScreenCol; // 768 pixels largeur d'écran
+    public final int screenHeight = tileSize * maxScreenRow; // 576 pixels longueur d'écran
 
+    // WORLD SETTINGS
     public final int maxWorldCol = 150;
     public final int maxWorldRow = 111;
 
