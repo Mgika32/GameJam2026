@@ -2,6 +2,9 @@ package main;
 
 import Entity.Player;
 import Mask.MultiMask;
+import tile.Tile;
+import tile.TileManager;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -20,6 +23,9 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels largeur d'écran
     final int screenHeight = tileSize * maxScreenRow; // 576 pixels longueur d'écran
 
+    public final int maxWorldCol = 150;
+    public final int maxWorldRow = 111;
+
     // FPS
     int FPS = 60;
 
@@ -28,7 +34,7 @@ public class GamePanel extends JPanel implements Runnable{
     Player player = new Player(this, keyH);
 
     //INSTANCE
-
+    TileManager TileM = new TileManager(this);
     MultiMask mask0 = new MultiMask();
 
 
@@ -88,8 +94,11 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
+        TileM.draw(g2);
+
         player.draw(g2);
         
+
         if (mask0.spawn == true) {
             mask0.draw(g2, this);
         }
