@@ -1,6 +1,8 @@
 package Entity;
 
 import java.awt.*;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -23,6 +25,21 @@ public class Player extends entity{
         x = 100;
         y = 100;
         speed = 4;
+    }
+    public void getPlayerImage() {
+        try {
+            up1 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_up_1.png"));
+            up2 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_up_2.png"));
+            down1 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_down_1.png"));
+            down2 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_down_2.png"));
+            left1 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_left_1.png"));
+            left2 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_left_2.png"));
+            right1 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_right_1.png"));
+            right2 = ImageIO.read(getClass().getResourceAsStream("/PlayerMove/boy_right_2.png"));
+        }catch(IOException e) {
+            e.printStackTrace();
+        }
+
     }
     public void update() {
 
