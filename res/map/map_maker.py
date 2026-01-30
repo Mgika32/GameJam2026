@@ -15,7 +15,7 @@ def to_string(sep = " ") -> str:
     for i in range(len(maps[0])):
         for j in range(len(maps)):
             current = str(maps[j][i])
-            # if current == "0": current = "  "
+            if current == "0": current = "  "
             while len(current) < 2: current = "0" + current
             result += current + sep
         result = result[:-1] + "\n"
@@ -73,11 +73,11 @@ rectangle(104, 39, 4, 291, 10)
 # JJ - EB Top
 rectangle(48, 70, 56, 4, 10)
 # JJ - EB Middle
-rectangle(48, 110, 56, 4, 10)
+rectangle(41, 110, 74, 4, 10)
 # JJ - EB Bottom
 rectangle(48, 146, 56, 4, 10)
 # EL - BU Top
-rectangle(48, 190, 56, 4, 10)
+rectangle(41, 190, 74, 4, 10)
 # EL - BU Bottom
 rectangle(48, 222, 56, 4, 10)
 # Admin In
