@@ -1,3 +1,4 @@
+package main;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -5,13 +6,15 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 
+import Entity.Player;
+
 public class GamePanel extends JPanel implements Runnable{
 
     // SCREEN SETTINGS
     final int originalTileSize = 32; //32x32 pixels
     final int scale = 1; 
 
-    final int tileSize = originalTileSize * scale; //32
+    public final int tileSize = originalTileSize * scale; //32
     final int maxScreenCol = 50; // largeur
     final int maxScreenRow = 30; // longueur
     final int screenWidth = tileSize * maxScreenCol; // 768 pixels largeur d'écran
@@ -22,6 +25,10 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
+
+    //INSTANCE
+
+    Player player1 = new Player();
 
     // Positions du joueur par défaut
     int playerX = 100;
