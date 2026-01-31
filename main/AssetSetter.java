@@ -46,6 +46,48 @@ public class AssetSetter {
         gp.monster[5].worldY = gp.tileSize * 3;
     }
 
+    public void setDisplayObjectMap2() {
+        
+        // 1. Créer une porte avec l'ID 50
+        gp.display[0] = new DoorLab(50); 
+        gp.display[0].worldX = 25 * gp.tileSize;
+        gp.display[0].worldY = 10 * gp.tileSize;
+
+        // 2. Créer un bouton qui ouvre la porte 50
+        gp.display[1] = new boutonPorte(0, 50); 
+        gp.display[1].worldX = 20 * gp.tileSize;
+        gp.display[1].worldY = 15 * gp.tileSize;
+        
+        // 3. Créer un bouton Puzzle (comme avant)
+        gp.display[2] = new boutonPorte(1, -1); // -1 veut dire "Pas de porte directe, c'est un puzzle"
+    }
+
+    public void setMonsterMap4() {
+        gp.monster[0] = new MON_GreenSlime(gp);
+        gp.monster[0].worldX = gp.tileSize * 40;
+        gp.monster[0].worldY = gp.tileSize * 10;
+
+        gp.monster[1] = new MON_GreenSlime(gp);
+        gp.monster[1].worldX = gp.tileSize * 42;
+        gp.monster[1].worldY = gp.tileSize * 10;
+
+        gp.monster[2] = new MON_GreenSlime(gp);
+        gp.monster[2].worldX = gp.tileSize * 44;
+        gp.monster[2].worldY = gp.tileSize * 10;
+
+        gp.monster[3] = new MON_GreenSlime(gp);
+        gp.monster[3].worldX = gp.tileSize * 40;
+        gp.monster[3].worldY = gp.tileSize * 10;
+
+        gp.monster[4] = new MON_GreenSlime(gp);
+        gp.monster[4].worldX = gp.tileSize * 42;
+        gp.monster[4].worldY = gp.tileSize * 10;
+
+        gp.monster[5] = new MON_GreenSlime(gp);
+        gp.monster[5].worldX = gp.tileSize * 44;
+        gp.monster[5].worldY = gp.tileSize * 10;
+    }
+
     public void setMaskMap1() {
         gp.Mask[0] = new Mask.MultiMask();
         gp.Mask[0].worldX = 41 * gp.tileSize;
