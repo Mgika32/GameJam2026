@@ -343,11 +343,25 @@ public class AssetSetter {
        
     }
 
+    public void setDisplayObjectMap4() {
+        
+        gp.display[0] = new Door();
+        gp.display[0].name = "Door";
+        gp.display[0].collision = true;
+        gp.display[0].worldX = 33 * gp.tileSize;
+        gp.display[0].worldY = 31 * gp.tileSize;
+
+    }
+
     public void setDisplayObjectMap6() {
         
     }
 
     public void setMaskMap6() {
+    }
+
+    public void setMaskMap4() {
+        
     }
 
 }

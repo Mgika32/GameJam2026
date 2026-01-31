@@ -1,9 +1,8 @@
 package main;
 
+import DisplayObject.Button;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
-
-import DisplayObject.Button;
 
 public class EventHandler {
     Rectangle eventRect;
@@ -199,6 +198,10 @@ public class EventHandler {
         else if (mapIndex == 3) {
             gp.aSetter.setDisplayObjectMap3();
             gp.aSetter.setMaskMap3();
+        }
+        else if (mapIndex == 4) {
+            gp.aSetter.setDisplayObjectMap4();
+            gp.aSetter.setMaskMap4();
         }
         else if (mapIndex == 6) {
             gp.aSetter.setDisplayObjectMap6();
