@@ -13,20 +13,8 @@ public class AssetSetter {
 
     public void setMaskMap0() {
         gp.Mask[0] = new Mask.MultiMask();
-        gp.Mask[0].worldX = 10 * gp.tileSize;
-        gp.Mask[0].worldY = 7 * gp.tileSize;
-
-        gp.Mask[1] = new Mask.BorelMask();
-        gp.Mask[1].worldX = 25 * gp.tileSize;
-        gp.Mask[1].worldY = 4 * gp.tileSize;
-
-        gp.Mask[2] = new Mask.MultiMask();
-        gp.Mask[2].worldX = 36 * gp.tileSize;
-        gp.Mask[2].worldY = 39 * gp.tileSize;
-
-        gp.Mask[3] = new Mask.BorelMask();
-        gp.Mask[3].worldX = 39 * gp.tileSize;
-        gp.Mask[3].worldY = 36 * gp.tileSize;
+        gp.Mask[0].worldX = 19 * gp.tileSize;
+        gp.Mask[0].worldY = 52 * gp.tileSize;
     }
     public void setDisplayObjectMap0() {
         

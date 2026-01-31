@@ -36,26 +36,50 @@ public class EventHandler {
 
     public void checkEventMap0() {
 
+        if (hit(23, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(38, 17, "any", false, false) || hit(38, 18, "any", false, false) || hit(38, 19, "any", false, false)) { 
             switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30); 
         }  
-        if (hit(50-21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+        if (hit(28, 45, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
         if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
         if (hit(39, 36, "any", false, false)) {System.out.println("Switching to map 4");switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
     }
 
     public void checkEventMap2() {
-        if (hit(39, 1, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,50-17,30);gp.aSetter.setMonster();}
+        if (hit(38, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
+        if (hit(37, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
+        if (hit(39, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
         if (hit(23, 30, "any", false, false) || hit(22, 30, "any", false, false) || hit(24, 30, "any", false, false)) { 
             switchMap(0, "/res/map/map0.txt", 50, 70, 38, 19); 
         }  
+        if (hit(24, 30, "any", false, false) || hit(22, 30, "any", false, false) || hit(24, 30, "any", false, false)) { 
+            switchMap(0, "/res/map/map0.txt", 50, 70, 38, 19); 
+        }
     }
 
     public void checkEventMap2_1() {
-        if (hit(39, 1, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,25,8);
+        if (hit(30, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
+        }
+        if (hit(31, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
+        }
+        if (hit(29, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
             for (int i = 0; i < gp.monster.length; i++) {
                 gp.monster[i] = null;
             }
@@ -67,7 +91,7 @@ public class EventHandler {
     }
 
     public void checkEventMap6() {
-        if (hit(2, 47, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,50-21,46);}
+        if (hit(0, 46, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,50,46);}
     }
         
     
