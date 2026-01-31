@@ -64,7 +64,63 @@ public class CollisionChecker {
                 break;
         }
     }
-    
+
+    public int checkObject(entity entity, boolean player1) {
+        int index = 999;
+
+        for (int i = 0; i < gp.display.length; i++) {
+            if (gp.display[i] != null) {
+                
+                // 1. Position actuelle de la zone solide dans le monde
+                entity.solidArea.x = entity.worldX + entity.solidArea.x;
+                entity.solidArea.y = entity.worldY + entity.solidArea.y;
+
+                gp.display[i].solidArea.x = gp.display[i].worldX + gp.display[i].solidArea.x;
+                gp.display[i].solidArea.y = gp.display[i].worldY + gp.display[i].solidArea.y;
+
+                // 2. Prédire la position selon la direction
+                switch (entity.direction) {
+                    case "up":    entity.solidArea.y -= entity.speed; break;
+                    case "down":  entity.solidArea.y += entity.speed; break;
+                    case "left":  entity.solidArea.x -= entity.speed; break;
+                    case "right": entity.solidArea.x += entity.speed; break;
+                }
+
+                // 3. Vérifier l'intersection
+                if (entity.solidArea.intersects(gp.display[i].solidArea)) {
+                    if (gp.display[i].collision == true) {
+                        
+                        // --- LOGIQUE DES BLOCS CONDITIONNELS ---
+                        if (gp.display[i].name.equals("Collision")) {
+                            if (gp.under == false) {
+                                entity.collisionOn = true;
+                            }
+                        } 
+                        else if (gp.display[i].name.equals("CollisionUnder")) {
+                            if (gp.under == true) {
+                                entity.collisionOn = true;
+                            }
+                        } 
+                        else {
+                            // Pour tous les autres objets solides (coffres, etc.)
+                            entity.collisionOn = true;
+                        }
+                    }
+                    
+                    if (player1) { 
+                        index = i; 
+                    }
+                }
+
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+                gp.display[i].solidArea.x = gp.display[i].solidAreaDefautlX; 
+                gp.display[i].solidArea.y = gp.display[i].solidAreaDefautlY; 
+            }
+        }
+        return index;
+    }
+
     public int checkMask(entity entity, boolean player1) {
 
         int index = 999;

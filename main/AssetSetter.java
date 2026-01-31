@@ -107,7 +107,139 @@ public class AssetSetter {
         gp.display[17].worldX = 29* gp.tileSize;
         gp.display[17].worldY = 20 * gp.tileSize;
 
+        gp.display[18] = new Collision();
+        gp.display[18].worldX = 21* gp.tileSize;
+        gp.display[18].worldY = 18 * gp.tileSize;
+
+        gp.display[19] = new Collision();
+        gp.display[19].worldX = 22* gp.tileSize;
+        gp.display[19].worldY = 18 * gp.tileSize;
+
+        gp.display[20] = new Collision();
+        gp.display[20].worldX = 23* gp.tileSize;
+        gp.display[20].worldY = 18 * gp.tileSize;
+
+        gp.display[21] = new Collision();
+        gp.display[21].worldX = 24* gp.tileSize;
+        gp.display[21].worldY = 18 * gp.tileSize;
+
+        gp.display[22] = new Collision();
+        gp.display[22].worldX = 25* gp.tileSize;
+        gp.display[22].worldY = 18 * gp.tileSize;
+
+        gp.display[23] = new Collision();
+        gp.display[23].worldX = 26* gp.tileSize;
+        gp.display[23].worldY = 18 * gp.tileSize;
+
+        gp.display[24] = new Collision();
+        gp.display[24].worldX = 27* gp.tileSize;
+        gp.display[24].worldY = 18 * gp.tileSize;
+
+        gp.display[25] = new Collision();
+        gp.display[25].worldX = 28* gp.tileSize;
+        gp.display[25].worldY = 18 * gp.tileSize;
+
+        gp.display[26] = new Collision();
+        gp.display[26].worldX = 29* gp.tileSize;
+        gp.display[26].worldY = 18 * gp.tileSize;
+
+        gp.display[27] = new Collision();
+        gp.display[27].worldX = 21* gp.tileSize;
+        gp.display[27].worldY = 21 * gp.tileSize;
+
+        gp.display[28] = new Collision();
+        gp.display[28].worldX = 22* gp.tileSize;
+        gp.display[28].worldY = 21 * gp.tileSize;
+
+        gp.display[29] = new Collision();
+        gp.display[29].worldX = 23* gp.tileSize;
+        gp.display[29].worldY = 21 * gp.tileSize;
+
+        gp.display[30] = new Collision();
+        gp.display[30].worldX = 24 * gp.tileSize;
+        gp.display[30].worldY = 21 * gp.tileSize;
+
+        gp.display[31] = new Collision();
+        gp.display[31].worldX = 25* gp.tileSize;
+        gp.display[31].worldY = 21 * gp.tileSize;
+
+        gp.display[32] = new Collision();
+        gp.display[32].worldX = 26* gp.tileSize;
+        gp.display[32].worldY = 21 * gp.tileSize;
+
+        gp.display[33] = new Collision();
+        gp.display[33].worldX = 27* gp.tileSize;
+        gp.display[33].worldY = 21 * gp.tileSize;
+
+        gp.display[34] = new Collision();
+        gp.display[34].worldX = 28* gp.tileSize;
+        gp.display[34].worldY = 21 * gp.tileSize;
+
+        gp.display[35] = new Collision();
+        gp.display[35].worldX = 29* gp.tileSize;
+        gp.display[35].worldY = 21 * gp.tileSize;
+
+        gp.display[36] = new DisplayBridge();
+        gp.display[36].worldX = 21* gp.tileSize;
+        gp.display[36].worldY = 18 * gp.tileSize;
+
+        gp.display[37] = new DisplayBridge();
+        gp.display[37].worldX = 22* gp.tileSize;
+        gp.display[37].worldY = 18 * gp.tileSize;
+
+        gp.display[38] = new DisplayBridge();
+        gp.display[38].worldX = 23* gp.tileSize;
+        gp.display[38].worldY = 18 * gp.tileSize;
+
+        gp.display[39] = new DisplayBridge();
+        gp.display[39].worldX = 24* gp.tileSize;
+        gp.display[39].worldY = 18 * gp.tileSize;
+
+        gp.display[40] = new DisplayBridge();
+        gp.display[40].worldX = 25* gp.tileSize;
+        gp.display[40].worldY = 18 * gp.tileSize;
+
+        gp.display[41] = new DisplayBridge();
+        gp.display[41].worldX = 26* gp.tileSize;
+        gp.display[41].worldY = 18 * gp.tileSize;
+
+        gp.display[42] = new DisplayBridge();
+        gp.display[42].worldX = 27* gp.tileSize;
+        gp.display[42].worldY = 18 * gp.tileSize;
+
+        gp.display[43] = new DisplayBridge();
+        gp.display[43].worldX = 28* gp.tileSize;
+        gp.display[43].worldY = 18 * gp.tileSize;
+
+        gp.display[44] = new DisplayBridge();
+        gp.display[44].worldX = 29* gp.tileSize;
+        gp.display[44].worldY = 18 * gp.tileSize;
+
+        gp.display[45] = new CollisionUnder();
+        gp.display[45].worldX = 30 * gp.tileSize;
+        gp.display[45].worldY = 19 * gp.tileSize;
+
+        gp.display[46] = new CollisionUnder();
+        gp.display[46].worldX = 30 * gp.tileSize;
+        gp.display[46].worldY = 20 * gp.tileSize;
+
+        gp.display[47] = new CollisionUnder();
+        gp.display[47].worldX = 30* gp.tileSize;
+        gp.display[47].worldY = 21 * gp.tileSize;
+
+        gp.display[48] = new CollisionUnder();
+        gp.display[48].worldX = 20* gp.tileSize;
+        gp.display[48].worldY = 19 * gp.tileSize;
+
+        gp.display[49] = new CollisionUnder();
+        gp.display[49].worldX = 20* gp.tileSize;
+        gp.display[49].worldY = 20 * gp.tileSize;
+
+        gp.display[50] = new CollisionUnder();
+        gp.display[50].worldX = 20* gp.tileSize;
+        gp.display[50].worldY = 21 * gp.tileSize;
     }
+    
 
     public void setMob() {
 

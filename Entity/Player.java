@@ -98,7 +98,7 @@ public class Player extends entity{
 
         collisionOn = false;
         gp.cChecker.checkTile(this);
-
+        gp.cChecker.checkObject(this, true);
         int objIndex = gp.cChecker.checkMask(this, true);
         pickUpMask(objIndex);
 
