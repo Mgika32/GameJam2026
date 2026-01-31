@@ -102,7 +102,20 @@ public class Player extends entity{
         int objIndex = gp.cChecker.checkMask(this, true);
         pickUpMask(objIndex);
 
-        gp.eHandler.checkEvent();
+        
+        switch (gp.currentMap) {
+
+            case 0:
+                
+                break;
+        
+            
+        }
+        
+        if (gp.currentMap == 0) {
+            gp.eHandler.checkEventMap0();
+        }
+        
                 
 
         

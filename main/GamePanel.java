@@ -24,8 +24,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = tileSize * maxScreenRow; // 576 pixels longueur d'écran
 
     // WORLD SETTINGS
-    public final int maxWorldCol = 50;
-    public final int maxWorldRow = 70;
+    public int maxWorldCol = 50;
+    public int maxWorldRow = 70;
 
     // FPS
     int FPS = 60;
@@ -46,6 +46,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     AssetSetter aSetter = new AssetSetter(this);
     public boolean under = true;
+    public int currentMap = 0;
     
 
 
@@ -60,8 +61,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void setupGame() {
 
-        aSetter.setMask();
-        aSetter.setDisplayObject();
+        aSetter.setMaskMap0();
+        aSetter.setDisplayObjectMap0();
         
     }
 
@@ -101,9 +102,27 @@ public class GamePanel extends JPanel implements Runnable{
         }
     }
 
+    public void resetEntities() {
+        for (int i = 0; i < display.length; i++) {
+            display[i] = null;
+        }
+        for (int i = 0; i < Mask.length; i++) {
+            Mask[i] = null;
+        }
+        aSetter.setDisplayObjectMap0();
+        aSetter.setMaskMap0();
+    }
+
     public void update() {
 
+
         player1.update();
+
+        if (currentMap == 0) {
+            eHandler.checkEventMap0();
+        } else if (currentMap == 1) {
+            eHandler.checkEventMap1();
+    }
         
     }
 
