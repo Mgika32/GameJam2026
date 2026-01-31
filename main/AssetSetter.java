@@ -27,9 +27,9 @@ public class AssetSetter {
     }
 
     public void setMaskMap1() {
-        gp.Mask[0] = new Mask.BorelMask();
-        gp.Mask[0].worldX = 15 * gp.tileSize;
-        gp.Mask[0].worldY = 45 * gp.tileSize;
+        gp.Mask[0] = new Mask.MultiMask();
+        gp.Mask[0].worldX = 41 * gp.tileSize;
+        gp.Mask[0].worldY = 48 * gp.tileSize;
 
         gp.Mask[1] = null;
     }
@@ -228,16 +228,48 @@ public class AssetSetter {
         gp.display[47].worldY = 21 * gp.tileSize;
 
         gp.display[48] = new CollisionUnder();
-        gp.display[48].worldX = 20* gp.tileSize;
+        gp.display[48].worldX = 21* gp.tileSize;
         gp.display[48].worldY = 19 * gp.tileSize;
 
         gp.display[49] = new CollisionUnder();
-        gp.display[49].worldX = 20* gp.tileSize;
+        gp.display[49].worldX = 21* gp.tileSize;
         gp.display[49].worldY = 20 * gp.tileSize;
 
         gp.display[50] = new CollisionUnder();
-        gp.display[50].worldX = 20* gp.tileSize;
+        gp.display[50].worldX = 21* gp.tileSize;
         gp.display[50].worldY = 21 * gp.tileSize;
+
+        gp.display[51] = new Button(0);
+        gp.display[51].worldX = 10 * gp.tileSize;
+        gp.display[51].worldY = 10 * gp.tileSize;
+        ((Button)gp.display[51]).state = 1; // Le premier est BLEU
+
+        gp.display[52] = new Button(1);
+        gp.display[52].worldX = 12 * gp.tileSize;
+        gp.display[52].worldY = 10 * gp.tileSize;
+
+        gp.display[53] = new Button(2);
+        gp.display[53].worldX = 14 * gp.tileSize;
+        gp.display[53].worldY = 10 * gp.tileSize;
+
+        gp.display[54] = new Door();
+        gp.display[54].name = "Door";
+        gp.display[54].collision = true;
+        gp.display[54].worldX = 33 * gp.tileSize;
+        gp.display[54].worldY = 31 * gp.tileSize;
+
+        gp.display[55] = new Door();
+        gp.display[55].name = "Door";
+        gp.display[55].collision = true;
+        gp.display[55].worldX = 33 * gp.tileSize;
+        gp.display[55].worldY = 32 * gp.tileSize;
+
+        gp.display[56] = new Door();
+        gp.display[56].name = "Door";
+        gp.display[56].collision = true;
+        gp.display[56].worldX = 33 * gp.tileSize;
+        gp.display[56].worldY = 33 * gp.tileSize;
+    
     }
     
 

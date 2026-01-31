@@ -39,6 +39,49 @@ public class EventHandler {
 
     }
 
+    int currentButtonNeeded = 0; // On commence par le bouton 0
+    int totalButtons = 3;        // Nombre total de boutons dans la chaîne
+
+    public void interactButton(int i) {
+        // On vérifie si l'objet touché est bien un bouton
+        if (gp.display[i] instanceof Button) {
+            Button btn = (Button) gp.display[i];
+
+            if (btn.buttonID == currentButtonNeeded && btn.state == 1) {
+                btn.state = 2; // Il devient rouge
+                currentButtonNeeded++; // On attend le suivant
+
+                // Est-ce que c'était le dernier ?
+                if (currentButtonNeeded == totalButtons) {
+                    openDoor();
+                } else {
+                    // On active le bouton suivant (il devient bleu)
+                    activateNextButton();
+                }
+            }
+        }
+    }
+
+    public void activateNextButton() {
+        for (int i = 0; i < gp.display.length; i++) {
+            if (gp.display[i] instanceof Button) {
+                Button btn = (Button) gp.display[i];
+                if (btn.buttonID == currentButtonNeeded) {
+                    btn.state = 1;
+                }
+            }
+        }
+    }
+
+    public void openDoor() {
+        System.out.println("La porte s'ouvre !");
+        for (int i = 0; i < gp.display.length; i++) {
+            if (gp.display[i] != null && gp.display[i].name.equals("Door")) {
+                gp.display[i] = null; 
+            }
+        }
+    }
+
     public void checkEventMap1() {
         if (hit(26, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
         if (hit(27, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}

@@ -79,83 +79,71 @@ public class Player extends entity{
     }
 
     public void update() {
-        if (keyH.upPressed == true ||keyH.downPressed == true ||keyH.leftPressed == true ||keyH.rightPressed == true ){
+    
+        // On ne fait l'update que si une touche est pressée
+        if (keyH.upPressed == true || keyH.downPressed == true || 
+            keyH.leftPressed == true || keyH.rightPressed == true) {
 
+            // 1. DÉFINIR LA DIRECTION
+            if (keyH.upPressed == true) { direction = "up"; }
+            else if (keyH.downPressed == true) { direction = "down"; }
+            else if (keyH.leftPressed == true) { direction = "left"; }
+            else if (keyH.rightPressed == true) { direction = "right"; }
 
-        if (keyH.upPressed == true){
-            direction = "up";
-        }
-        else if (keyH.downPressed == true){
-            direction = "down";
-        }
-        else if (keyH.rightPressed == true){
-            direction = "right";
-        }
-        else if (keyH.leftPressed == true){
-            direction = "left";
+            // 2. VÉRIFIER LES COLLISIONS (Reset à chaque update)
+            collisionOn = false;
             
-        }
-
-        collisionOn = false;
-        gp.cChecker.checkTile(this);
-        gp.cChecker.checkObject(this, true);
-        int objIndex = gp.cChecker.checkMask(this, true);
-        pickUpMask(objIndex);
-
-        
-        switch (gp.currentMap) {
-
-            case 0:
-                
-                break;
-        
+            // Vérifie les tuiles (murs)
+            gp.cChecker.checkTile(this);
             
-        }
-        
-        if (gp.currentMap == 0) {
-            gp.eHandler.checkEventMap0();
-        }
-        
-                
-
-        
-
-        if (collisionOn == false) {
-
-            switch (direction) {
-                case "up":
-                    worldY -= speed;
-                    break;
-                case "down":
-                    worldY += speed;
-                    break;
-                case "left":
-                    worldX -= speed;
-                    break;
-                case "right":
-                    worldX += speed;
-                    break;
+            // Vérifie les objets (boutons, ponts, collisions invisibles)
+            int objIndex = gp.cChecker.checkObject(this, true);
             
-                default:
-                    break;
+            // Vérifie les masques
+            int maskIndex = gp.cChecker.checkMask(this, true);
+
+            // 3. ACTIONS ET INTERACTIONS
+            // Si on touche un masque, on essaie de le ramasser
+            pickUpMask(maskIndex);
+            
+            // Si on touche un objet, on vérifie si c'est un bouton
+            if (objIndex != 999) {
+                gp.eHandler.interactButton(objIndex);
             }
 
-            spriteCounter ++;
-            if (spriteCounter > 12) {
+            // 4. VÉRIFIER LES ÉVÉNEMENTS (Changement de map, etc.)
+            if (gp.currentMap == 0) {
+                gp.eHandler.checkEventMap0();
+            } else if (gp.currentMap == 1) {
+                gp.eHandler.checkEventMap1();
+            }
+
+            // 5. SI AUCUNE COLLISION, LE JOUEUR PEUT BOUGER
+            if (collisionOn == false) {
+                switch (direction) {
+                    case "up":    worldY -= speed; break;
+                    case "down":  worldY += speed; break;
+                    case "left":  worldX -= speed; break;
+                    case "right": worldX += speed; break;
+                }
+            }
+
+            // 6. ANIMATION DU SPRITE
+            spriteCounter++;
+            if (spriteCounter > 12) { // Vitesse de l'animation
                 if (spriteNum == 1) {
                     spriteNum = 2;
-                }
-                else if (spriteNum == 2) {
+                } else if (spriteNum == 2) {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
             }
-        }}
-        else {
+        } else {
+            // Si aucune touche n'est pressée, on remet le sprite au repos
             spriteNum = 1;
         }
+    }    
 
-}
     public void draw(Graphics2D g2) {
         BufferedImage image = null;
         

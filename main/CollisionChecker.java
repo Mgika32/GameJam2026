@@ -102,7 +102,6 @@ public class CollisionChecker {
                             }
                         } 
                         else {
-                            // Pour tous les autres objets solides (coffres, etc.)
                             entity.collisionOn = true;
                         }
                     }

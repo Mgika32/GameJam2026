@@ -21,7 +21,7 @@ public class CollisionUnder extends SuperDisplayObject{
         collision = true;
          
         try {
-            image = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/Collision.png"));
+            image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/Collision.png"));
             
         } catch (IOException e) {
             e.printStackTrace();
