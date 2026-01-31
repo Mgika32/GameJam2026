@@ -41,6 +41,7 @@ public class EventHandler {
         }  
         if (hit(50-21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
         if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
+        if (hit(40, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",50,32,50-21,30);}
     }
 
     public void checkEventMap2() {
@@ -194,6 +195,14 @@ public class EventHandler {
         else if (mapIndex == 2.1) {
             gp.aSetter.setDisplayObjectMap2_1();
             gp.aSetter.setMaskMap2_1();
+        }
+        else if (mapIndex == 3) {
+            gp.aSetter.setDisplayObjectMap3();
+            gp.aSetter.setMaskMap3();
+        }
+        else if (mapIndex == 6) {
+            gp.aSetter.setDisplayObjectMap6();
+            gp.aSetter.setMaskMap6();
         }
         
 }

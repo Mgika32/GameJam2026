@@ -319,4 +319,24 @@ public class AssetSetter {
     public void setMaskMap2_1() {
     }
 
+    public void setDisplayObjectMap3() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDisplayObjectMap3'");
+    }
+
+    public void setMaskMap3() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setMaskMap3'");
+    }
+
+    public void setDisplayObjectMap6() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setDisplayObjectMap6'");
+    }
+
+    public void setMaskMap6() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setMaskMap6'");
+    }
+
 }
