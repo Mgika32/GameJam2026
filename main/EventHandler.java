@@ -12,6 +12,8 @@ public class EventHandler {
     GamePanel gp;
     Graphics2D g2;
 
+    public boolean allMobsDeads = false;
+
 
     public EventHandler(GamePanel gp){
 
@@ -28,6 +30,8 @@ public class EventHandler {
         eventRectLarge.height = gp.tileSize* 5;
         eventRectDefaultX = eventRect.x;
         eventRectDefaultY = eventRect.y;
+
+        
     }
 
     public void checkEventMap0() {
@@ -55,6 +59,10 @@ public class EventHandler {
             for (int i = 0; i < gp.monster.length; i++) {
                 gp.monster[i] = null;
             }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
         }
     }
 
@@ -221,6 +229,31 @@ public class EventHandler {
     public void checkEventMap5() {
         
     }
+
+    public void checkAllMobsDeads() {
+        boolean allDead = true;
+        for (int i = 0; i < gp.monster.length; i++) {
+            if (gp.monster[i] != null) {
+                allDead = false;
+                break;
+            }
+        }
+        if (allDead) {
+            spawnBorelMask();
+        }
+    }
+
+    public void spawnBorelMask() {
+        for (int i = 0; i < gp.Mask.length; i++) {
+            if (gp.Mask[i] == null) {
+                gp.Mask[i] = new Mask.BorelMask();
+                gp.Mask[i].worldX = 40 * gp.tileSize;
+                gp.Mask[i].worldY = 10 * gp.tileSize;
+                break;
+            }
+        }
+    }
+
 
 
 }
