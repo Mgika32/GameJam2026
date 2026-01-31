@@ -38,10 +38,10 @@ public class KeyHandler implements KeyListener {
             enterPressed = true;
         }
         if (code == KeyEvent.VK_L) {
-            gp.under = true;
+            gp.player1.speed ++;
         }
         if (code == KeyEvent.VK_K) {
-            gp.under = false;
+            gp.player1.speed --;
         }
         if (code == KeyEvent.VK_SPACE) {
             spacePressed = true;
