@@ -1,6 +1,7 @@
 package main;
 
 import DisplayObject.*;
+import Monster.MON_GreenSlime;
 
 public class AssetSetter {
 
@@ -20,10 +21,18 @@ public class AssetSetter {
         gp.Mask[1].worldY = 4 * gp.tileSize;
     }
     public void setDisplayObjectMap0() {
-        gp.display[0] = new DisplayBridge();
-        gp.display[0].worldX = 25* gp.tileSize;
-        gp.display[0].worldY = 12 * gp.tileSize;
+        
 
+    }
+
+    public void setMonster() {
+        gp.monster[0] = new MON_GreenSlime(gp);
+        gp.monster[0].worldX = gp.tileSize * 23;
+        gp.monster[0].worldY = gp.tileSize * 36;
+
+        gp.monster[1] = new MON_GreenSlime(gp);
+        gp.monster[1].worldX = gp.tileSize * 23;
+        gp.monster[1].worldY = gp.tileSize * 37;
     }
 
     public void setMaskMap1() {

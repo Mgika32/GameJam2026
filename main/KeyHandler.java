@@ -7,7 +7,7 @@ public class KeyHandler implements KeyListener {
 
 
         GamePanel gp;
-        public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
+        public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed,spacePressed ;
     
         public void keyTyped(KeyEvent e) {
        
@@ -43,6 +43,9 @@ public class KeyHandler implements KeyListener {
         if (code == KeyEvent.VK_K) {
             gp.under = false;
         }
+        if (code == KeyEvent.VK_SPACE) {
+            spacePressed = true;
+        }
     }
 
     
@@ -64,6 +67,9 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_ENTER) {
             enterPressed = true;
+        }
+        if (code == KeyEvent.VK_SPACE) {
+            spacePressed = false;
         }
 
     }
