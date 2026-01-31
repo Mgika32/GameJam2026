@@ -69,7 +69,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         aSetter.setMaskMap0();
         aSetter.setDisplayObjectMap0();
-        aSetter.setMonster();
+        
         
     }
 
@@ -133,7 +133,10 @@ public class GamePanel extends JPanel implements Runnable{
         }  
         else if (currentMap == 2) { // AJOUT
             eHandler.checkEventMap2();
-}
+        }
+        else if (currentMap == 2.1) {
+            eHandler.checkEventMap2_1();
+        }
         for(int i = 0; i < projectileList.size(); i++) {
             if(projectileList.get(i) != null) {
                 if(projectileList.get(i).alive == true) {

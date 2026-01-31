@@ -42,8 +42,18 @@ public class EventHandler {
             
     }
 
-    public void checkEventMap2() {}
-    
+    public void checkEventMap2() {
+        if (hit(39, 1, "any", false, false)) {switchMap(0, "/res/map/map2_1.txt",50,50,25,8);gp.aSetter.setMonster();}
+    }
+
+    public void checkEventMap2_1() {
+        if (hit(39, 1, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,50,25,8);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+    }
+        
     
 
     int currentButtonNeeded = 0; 
