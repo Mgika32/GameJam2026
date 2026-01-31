@@ -21,12 +21,12 @@ public class AssetSetter {
         gp.Mask[1].worldY = 4 * gp.tileSize;
 
         gp.Mask[2] = new Mask.MultiMask();
-        gp.Mask[2].worldX = 45 * gp.tileSize;
-        gp.Mask[2].worldY = 12 * gp.tileSize;
+        gp.Mask[2].worldX = 36 * gp.tileSize;
+        gp.Mask[2].worldY = 39 * gp.tileSize;
 
         gp.Mask[3] = new Mask.BorelMask();
-        gp.Mask[3].worldX = 12 * gp.tileSize;
-        gp.Mask[3].worldY = 45 * gp.tileSize;
+        gp.Mask[3].worldX = 39 * gp.tileSize;
+        gp.Mask[3].worldY = 36 * gp.tileSize;
     }
     public void setDisplayObjectMap0() {
         
@@ -320,23 +320,18 @@ public class AssetSetter {
     }
 
     public void setDisplayObjectMap3() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDisplayObjectMap3'");
+        
     }
 
     public void setMaskMap3() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setMaskMap3'");
+       
     }
 
     public void setDisplayObjectMap6() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setDisplayObjectMap6'");
+        
     }
 
     public void setMaskMap6() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setMaskMap6'");
     }
 
 }
