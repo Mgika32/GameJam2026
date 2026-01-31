@@ -312,4 +312,11 @@ public class AssetSetter {
     public void setMaskMap2() {
     }
 
+    public void setDisplayObjectMap2_1() {
+        
+    }
+
+    public void setMaskMap2_1() {
+    }
+
 }

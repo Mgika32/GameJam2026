@@ -50,7 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     AssetSetter aSetter = new AssetSetter(this);
     public boolean under = true;
-    public int currentMap = 0;
+    public double currentMap = 0;
 
 
     public ArrayList<Projectile> projectileList = new ArrayList<>();
@@ -136,6 +136,9 @@ public class GamePanel extends JPanel implements Runnable{
         }
         else if (currentMap == 2.1) {
             eHandler.checkEventMap2_1();
+        }
+        else if (currentMap == 6) {
+            eHandler.checkEventMap6();
         }
         for(int i = 0; i < projectileList.size(); i++) {
             if(projectileList.get(i) != null) {
