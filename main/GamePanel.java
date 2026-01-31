@@ -137,6 +137,15 @@ public class GamePanel extends JPanel implements Runnable{
         else if (currentMap == 2.1) {
             eHandler.checkEventMap2_1();
         }
+        else if (currentMap == 3) {
+            eHandler.checkEventMap3();
+        }
+        else if (currentMap == 4) {
+            eHandler.checkEventMap4();
+        }
+        else if (currentMap == 5) {
+            eHandler.checkEventMap5();
+        }
         else if (currentMap == 6) {
             eHandler.checkEventMap6();
         }

@@ -40,6 +40,7 @@ public class EventHandler {
             switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30); 
         }  
         if (hit(50-21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+        if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
     }
 
     public void checkEventMap2() {
@@ -196,6 +197,18 @@ public class EventHandler {
         }
         
 }
+
+    public void checkEventMap3() {
+       
+    }
+
+    public void checkEventMap4() {
+        
+    }
+
+    public void checkEventMap5() {
+        
+    }
 
 
 }
