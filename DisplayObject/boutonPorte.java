@@ -28,9 +28,8 @@ public class boutonPorte extends SuperDisplayObject {
 
     public void getButtonImages() {
         try {
-            imgInactif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button_black.png"));
-            imgActif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button_blue.png"));
-            imgAppuye = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button_red.png"));
+            imgInactif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCBlackScreen.png"));
+            imgAppuye = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCRedScreen.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
