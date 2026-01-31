@@ -41,12 +41,15 @@ import main.UtilityTool;
     }
 
     public void getTileImage() {
-        // GRASS
+        // Terrain
         setup(10, "grass", false);
         setup(20, "path", false);
+        setup(25, "BlackGround", false);
+        setup(26, "WoodPlanks", false);
         setup(30, "wall", true);
         setup(50, "Collision", true);
 
+        
     }
 
 
