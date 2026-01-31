@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+
+import Mask.SuperMask;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -11,6 +13,7 @@ public class Player extends entity{
 
     GamePanel gp;
     KeyHandler keyH;
+    public SuperMask[] inventory = new SuperMask[6];
 
     public final int screenX;
     public final int screenY;
@@ -51,38 +54,86 @@ public class Player extends entity{
         }
 
     }
+
+    public void pickUpMask (int i) {
+
+        if (i != 999) {
+            switch (gp.Mask[i].name) {
+                case "MultiMask":
+                    gp.player.inventory[0] = gp.Mask[i];
+                    gp.Mask[i] = null;
+                    System.out.println("got it");
+                    break;
+            }
+        }
+
+    }
+
     public void update() {
+        if (keyH.upPressed == true ||keyH.downPressed == true ||keyH.leftPressed == true ||keyH.rightPressed == true ){
 
-        if(keyH.upPressed == true || keyH.downPressed == true || keyH.leftPressed == true || keyH.rightPressed == true) {
-            if (keyH.upPressed == true) {
-                direction = "up";
-                worldY -= speed;
-            }
-            if (keyH.downPressed == true) {
-                direction = "down";
-                worldY += speed;
-            }
-            if (keyH.leftPressed == true) {
-                direction = "left";
-                worldX -= speed;
-            }
-            if (keyH.rightPressed == true) {
-                direction = "right";
-                worldX += speed;
+
+        if (keyH.upPressed == true){
+            direction = "up";
+        }
+        else if (keyH.downPressed == true){
+            direction = "down";
+        }
+        else if (keyH.rightPressed == true){
+            direction = "right";
+        }
+        else if (keyH.leftPressed == true){
+            direction = "left";
+            
+        }
+
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
+
+        int objIndex = gp.cChecker.checkMask(this, true);
+        pickUpMask(objIndex);
+
+        gp.eHandler.checkEvent();
+        // check event
+        
+
+        if (collisionOn == false) {
+
+            switch (direction) {
+                case "up":
+                    worldY -= speed;
+                    break;
+                case "down":
+                    worldY += speed;
+                    break;
+                case "left":
+                    worldX -= speed;
+                    break;
+                case "right":
+                    worldX += speed;
+                    break;
+            
+                default:
+                    break;
             }
 
-            spriteCounter++;
-            if(spriteCounter > 14) {
-                if(spriteNum == 1) {
+            spriteCounter ++;
+            if (spriteCounter > 12) {
+                if (spriteNum == 1) {
                     spriteNum = 2;
                 }
-                else if(spriteNum == 2) {
+                else if (spriteNum == 2) {
                     spriteNum = 1;
                 }
                 spriteCounter = 0;
             }
+        }}
+        else {
+            //maj daddydier UwU trop baka
+            spriteNum = 1;
         }
-    }
+
+}
     public void draw(Graphics2D g2) {
         BufferedImage image = null;
         

@@ -2,6 +2,8 @@ package main;
 
 import Entity.Player;
 import Mask.MultiMask;
+import Mask.SuperMask;
+
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -35,6 +37,13 @@ public class GamePanel extends JPanel implements Runnable{
     //INSTANCE
     TileManager TileM = new TileManager(this);
     MultiMask mask0 = new MultiMask();
+ 
+    public SuperMask[] Mask = new SuperMask[10];
+    public CollisionChecker cChecker = new CollisionChecker(this);
+    public EventHandler eHandler = new EventHandler(this);
+
+    AssetSetter aSetter = new AssetSetter(this);
+    
 
 
     public GamePanel() {
@@ -44,6 +53,12 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+
+    public void setupGame() {
+
+        aSetter.setMask();
+        
     }
 
     public void startGameThread() {
@@ -96,13 +111,15 @@ public class GamePanel extends JPanel implements Runnable{
 
         TileM.draw(g2);
 
-        player.draw(g2);
+        
         
 
-        if (mask0.spawn == true) {
-            mask0.draw(g2, this);
+        for (int i = 0; i < Mask.length; i++) {
+            if (Mask[i] != null ) {
+                Mask[i].draw(g2, this);
+            }
         }
-        
+        player.draw(g2);
 
         g2.dispose();
 
