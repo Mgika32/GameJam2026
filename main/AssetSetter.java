@@ -240,17 +240,17 @@ public class AssetSetter {
         gp.display[50].worldY = 21 * gp.tileSize;
 
         gp.display[51] = new Button(0);
-        gp.display[51].worldX = 10 * gp.tileSize;
-        gp.display[51].worldY = 10 * gp.tileSize;
+        gp.display[51].worldX = 1 * gp.tileSize;
+        gp.display[51].worldY = 5 * gp.tileSize;
         ((Button)gp.display[51]).state = 1; // Le premier est BLEU
 
         gp.display[52] = new Button(1);
-        gp.display[52].worldX = 12 * gp.tileSize;
-        gp.display[52].worldY = 10 * gp.tileSize;
+        gp.display[52].worldX = 1 * gp.tileSize;
+        gp.display[52].worldY = 20 * gp.tileSize;
 
         gp.display[53] = new Button(2);
-        gp.display[53].worldX = 14 * gp.tileSize;
-        gp.display[53].worldY = 10 * gp.tileSize;
+        gp.display[53].worldX = 40 * gp.tileSize;
+        gp.display[53].worldY = 3 * gp.tileSize;
 
         gp.display[54] = new Door();
         gp.display[54].name = "Door";
@@ -269,6 +269,18 @@ public class AssetSetter {
         gp.display[56].collision = true;
         gp.display[56].worldX = 33 * gp.tileSize;
         gp.display[56].worldY = 33 * gp.tileSize;
+
+        gp.display[57] = new Button(3);
+        gp.display[57].worldX = 48 * gp.tileSize;
+        gp.display[57].worldY = 22 * gp.tileSize;
+
+        gp.display[58] = new Button(4);
+        gp.display[58].worldX = 3 * gp.tileSize;
+        gp.display[58].worldY = 48 * gp.tileSize;
+
+        gp.display[59] = new Button(5);
+        gp.display[59].worldX = 11 * gp.tileSize;
+        gp.display[59].worldY = 48 * gp.tileSize;
     
     }
     

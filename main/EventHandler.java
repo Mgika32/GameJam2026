@@ -40,7 +40,7 @@ public class EventHandler {
     }
 
     int currentButtonNeeded = 0; // On commence par le bouton 0
-    int totalButtons = 3;        // Nombre total de boutons dans la chaîne
+    int totalButtons = 6;        // Nombre total de boutons dans la chaîne
 
     public void interactButton(int i) {
         // On vérifie si l'objet touché est bien un bouton
