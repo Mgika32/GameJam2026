@@ -29,12 +29,15 @@ public class EventHandler {
         eventRectDefaultY = eventRect.y;
     }
 
-    public void checkEvent() {
+    public void checkEventMap0() {
 
-        if (hit(0, 0, "any", false, false )) {System.out.println("pute");}
-        if (hit(24, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0; gp.under = false;}
-        if (hit(25, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0;gp.under = false;}
-        if (hit(26, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0;gp.under = false;}
+        if (hit(24, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
+        if (hit(25, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
+        if (hit(26, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
+
+    }
+
+    public void checkEventMap1() {
 
     }
 
@@ -83,9 +86,17 @@ public class EventHandler {
         System.out.println("Player life: " + gp.player1.life);
     }
 
-    public void switchMap(String path) {
-        gp.TileM.path = path;
-    }
+    public void switchMap(int mapIndex, String path, int cols, int rows, int spawnX, int spawnY) {
+        gp.currentMap = mapIndex;
+        
+        gp.resetEntities(); 
+        
+        gp.TileM.loadMap(path, cols, rows);
+        
+        gp.player1.worldX = spawnX * gp.tileSize;
+        gp.player1.worldY = spawnY * gp.tileSize;
+        
+}
 
 
 }
