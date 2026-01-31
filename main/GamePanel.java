@@ -9,6 +9,8 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
+
+import DisplayObject.SuperDisplayObject;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -30,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
     // FPS
     int FPS = 60;
 
-    KeyHandler keyH = new KeyHandler();
+    KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
     public Player player = new Player(this, keyH);
 
@@ -39,10 +41,13 @@ public class GamePanel extends JPanel implements Runnable{
     MultiMask mask0 = new MultiMask();
  
     public SuperMask[] Mask = new SuperMask[10];
+    public SuperDisplayObject[] display = new SuperDisplayObject[30];
+
     public CollisionChecker cChecker = new CollisionChecker(this);
     public EventHandler eHandler = new EventHandler(this);
 
     AssetSetter aSetter = new AssetSetter(this);
+    public boolean under = true;
     
 
 
@@ -58,6 +63,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setupGame() {
 
         aSetter.setMask();
+        aSetter.setDisplayObject();
         
     }
 
@@ -119,7 +125,28 @@ public class GamePanel extends JPanel implements Runnable{
                 Mask[i].draw(g2, this);
             }
         }
-        player.draw(g2);
+
+
+        if (under == true) {
+            player.draw(g2);
+
+            for (int j = 0; j < display.length; j ++) {
+                if (display[j] != null) {
+                    display[j].draw(g2, this);
+                }
+            }
+        }
+        else {
+
+            for (int j = 0; j < display.length; j ++) {
+                if (display[j] != null) {
+                    display[j].draw(g2, this);
+                }
+            }
+
+            player.draw(g2);
+        }
+        
 
         g2.dispose();
 

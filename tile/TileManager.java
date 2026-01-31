@@ -15,6 +15,7 @@
         GamePanel gp;
         public Tile[] tile;
         public int mapTileNum[][];
+        public String path = "/res/map/map.txt";
 
         public TileManager(GamePanel gp) {
             this.gp = gp;
@@ -23,7 +24,7 @@
             mapTileNum = new int[gp.maxWorldCol][gp.maxWorldRow];
 
             getTileImage();
-            loadMap("/res/map/map.txt");
+            loadMap(path);
         }
 
         public void setup(int index, String imageName, boolean collision) {
