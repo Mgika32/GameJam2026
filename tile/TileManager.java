@@ -2,6 +2,7 @@ package tile;
 
 import java.awt.Graphics2D;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -30,7 +31,8 @@ import main.UtilityTool;
 
         try {
             tile[index] = new Tile();
-            tile[index].image = ImageIO.read(getClass().getResourceAsStream("/res/tiles/" + imageName + ".png"));
+            File f = new File("res/tiles/" + imageName + ".png");
+            tile[index].image = ImageIO.read(f); //ImageIO.read(getClass().getResourceAsStream("res/tiles/" + imageName + ".png"));
             tile[index].image = uTool.scaleImage(tile[index].image, gp.tileSize, gp.tileSize);
             tile[index].collision = collision;
         } catch (IOException e) {
