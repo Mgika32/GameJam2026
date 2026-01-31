@@ -40,6 +40,22 @@ public class AssetSetter {
         gp.monster[1] = new MON_GreenSlime(gp);
         gp.monster[1].worldX = gp.tileSize * 23;
         gp.monster[1].worldY = gp.tileSize * 3;
+
+        gp.monster[2] = new MON_GreenSlime(gp);
+        gp.monster[2].worldX = gp.tileSize * 25;
+        gp.monster[2].worldY = gp.tileSize * 3;
+
+        gp.monster[3] = new MON_GreenSlime(gp);
+        gp.monster[3].worldX = gp.tileSize * 15;
+        gp.monster[3].worldY = gp.tileSize * 3;
+
+        gp.monster[4] = new MON_GreenSlime(gp);
+        gp.monster[4].worldX = gp.tileSize * 17;
+        gp.monster[4].worldY = gp.tileSize * 3;
+
+        gp.monster[5] = new MON_GreenSlime(gp);
+        gp.monster[5].worldX = gp.tileSize * 19;
+        gp.monster[5].worldY = gp.tileSize * 3;
     }
 
     public void setMaskMap1() {
@@ -327,11 +343,25 @@ public class AssetSetter {
        
     }
 
+    public void setDisplayObjectMap4() {
+        
+        gp.display[0] = new Door();
+        gp.display[0].name = "Door";
+        gp.display[0].collision = true;
+        gp.display[0].worldX = 33 * gp.tileSize;
+        gp.display[0].worldY = 31 * gp.tileSize;
+
+    }
+
     public void setDisplayObjectMap6() {
         
     }
 
     public void setMaskMap6() {
+    }
+
+    public void setMaskMap4() {
+        
     }
 
 }
