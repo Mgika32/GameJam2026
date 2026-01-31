@@ -46,12 +46,18 @@ import main.UtilityTool;
         setup(20, "path", false);
         setup(25, "BlackGround", false);
         setup(26, "WoodPlanks", false);
+        setup(27, "StairsFrontLeft", false);
+        setup(28, "StairsFrontRight", false);
         setup(30, "wall", true);
+        setup(31, "WallFront", true);
+        setup(32, "WallCrossRight", true);
+        setup(33, "WallSide", true);
         setup(50, "Collision", true);
 
         // Objets
         setup(51, "Chair", false);
-        setup(52, "Table", false);
+        setup(52, "Table", true);
+
     }
 
 
