@@ -3,6 +3,8 @@ package main;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
+import DisplayObject.Button;
+
 public class EventHandler {
     Rectangle eventRect;
     Rectangle eventRectLarge;
