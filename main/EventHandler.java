@@ -31,14 +31,20 @@ public class EventHandler {
 
     public void checkEventMap0() {
 
-        if (hit(24, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
-        if (hit(25, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
-        if (hit(26, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {switchMap(1, "/res/map/map1.txt",50,50,25,25);}
+        if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
+        if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
+        if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
 
     }
 
     public void checkEventMap1() {
-
+        if (hit(26, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        if (hit(27, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        if (hit(25, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        if (hit(32, 23, "up", false, false)) {gp.under = false; System.out.println("Under: " + gp.under);}
+        if (hit(32, 23, "down", false, false)) {gp.under = true; System.out.println("Under: " + gp.under);}
+        if (hit(31, 23, "up", false, false)) {gp.under = false; System.out.println("Under: " + gp.under);}
+        if (hit(31, 23, "down", false, false)) {gp.under = true; System.out.println("Under: " + gp.under);}
     }
 
     public boolean hit(int eventCol, int eventRow, String reqDirection, boolean isLarge, boolean isHeight) {
@@ -95,6 +101,21 @@ public class EventHandler {
         
         gp.player1.worldX = spawnX * gp.tileSize;
         gp.player1.worldY = spawnY * gp.tileSize;
+
+        switch (mapIndex) {
+            case 0:
+                gp.aSetter.setDisplayObjectMap0();
+                gp.aSetter.setMaskMap0();
+                break;
+        
+            case 1:
+                gp.aSetter.setDisplayObjectMap1();
+                gp.aSetter.setMaskMap1();
+                gp.player1.speed = 5;
+                break;
+            default:
+                break;
+        }
         
 }
 

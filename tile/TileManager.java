@@ -43,6 +43,7 @@ import main.UtilityTool;
         setup(10, "grass", false);
         setup(20, "path", false);
         setup(30, "wall", true);
+        setup(50, "Collision", true);
 
     }
 
