@@ -36,22 +36,29 @@ public class EventHandler {
         if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
-        if (hit(45, 12, "any", false, false)) { 
-            switchMap(2, "/res/map/map2.txt", 50, 50, 25, 40); 
-        }
-            
+        if (hit(38, 17, "any", false, false) || hit(38, 18, "any", false, false) || hit(38, 19, "any", false, false)) { 
+            switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30); 
+        }  
+        if (hit(50-21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
     }
 
     public void checkEventMap2() {
-        if (hit(39, 1, "any", false, false)) {switchMap(0, "/res/map/map2_1.txt",50,50,25,8);gp.aSetter.setMonster();}
+        if (hit(39, 1, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,50-17,30);gp.aSetter.setMonster();}
+        if (hit(23, 30, "any", false, false) || hit(22, 30, "any", false, false) || hit(24, 30, "any", false, false)) { 
+            switchMap(0, "/res/map/map0.txt", 50, 70, 38, 19); 
+        }  
     }
 
     public void checkEventMap2_1() {
-        if (hit(39, 1, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,50,25,8);
+        if (hit(39, 1, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,25,8);
             for (int i = 0; i < gp.monster.length; i++) {
                 gp.monster[i] = null;
             }
         }
+    }
+
+    public void checkEventMap6() {
+        if (hit(2, 47, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,50-21,46);}
     }
         
     
@@ -156,7 +163,7 @@ public class EventHandler {
 
     
 
-    public void switchMap(int mapIndex, String path, int cols, int rows, int spawnX, int spawnY) {
+    public void switchMap(double mapIndex, String path, int cols, int rows, int spawnX, int spawnY) {
         gp.currentMap = mapIndex;
         
         gp.resetEntities(); 
@@ -166,23 +173,26 @@ public class EventHandler {
         gp.player1.worldX = spawnX * gp.tileSize;
         gp.player1.worldY = spawnY * gp.tileSize;
 
-        switch (mapIndex) {
-            case 0:
-                gp.aSetter.setDisplayObjectMap0();
-                gp.aSetter.setMaskMap0();
-                break;
+
+
+        if (mapIndex == 0) {
+            gp.aSetter.setDisplayObjectMap0();
+            gp.aSetter.setMaskMap0();
+        }
         
-            case 1:
-                gp.aSetter.setDisplayObjectMap1();
-                gp.aSetter.setMaskMap1();
-                gp.player1.speed = 5;
-                break;
-            case 2:
-                gp.aSetter.setDisplayObjectMap2();
-                gp.aSetter.setMaskMap2();
-                break;
-            default:
-                break;
+        else if (mapIndex == 1) {
+            gp.aSetter.setDisplayObjectMap1();
+            gp.aSetter.setMaskMap1();
+            gp.player1.speed = 5;
+        }
+        else if (mapIndex == 2) {
+            
+            gp.aSetter.setDisplayObjectMap2();
+            gp.aSetter.setMaskMap2();
+        }
+        else if (mapIndex == 2.1) {
+            gp.aSetter.setDisplayObjectMap2_1();
+            gp.aSetter.setMaskMap2_1();
         }
         
 }
