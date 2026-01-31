@@ -11,12 +11,6 @@ public class EventHandler {
     GamePanel gp;
     Graphics2D g2;
 
-    public boolean pitDone = false;
-    public boolean leverDone = false;
-    public boolean healDone = false;
-    public boolean tombFlower = false;
-    public boolean H1 = false;
-    boolean enter = false;
 
     public EventHandler(GamePanel gp){
 
@@ -37,7 +31,7 @@ public class EventHandler {
 
     public void checkEvent() {
 
-        if (hit(8, 16, "any", false, false)) {System.out.println("pute");}
+        if (hit(0, 0, "any", false, false)) {System.out.println("pute");}
     }
 
     public boolean hit(int eventCol, int eventRow, String reqDirection, boolean isLarge, boolean isHeight) {

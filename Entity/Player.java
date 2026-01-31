@@ -94,7 +94,8 @@ public class Player extends entity{
         pickUpMask(objIndex);
 
         gp.eHandler.checkEvent();
-        // check event
+                
+
         
 
         if (collisionOn == false) {
