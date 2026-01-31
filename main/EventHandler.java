@@ -31,10 +31,10 @@ public class EventHandler {
 
     public void checkEvent() {
 
-        if (hit(0, 0, "any", false, false)) {System.out.println("pute");}
-        if (hit(24, 6, "any", false, false)) {gp.player.worldX = 0; gp.player.worldY = 0;}
-        if (hit(25, 6, "any", false, false)) {gp.player.worldX = 0; gp.player.worldY = 0;}
-        if (hit(26, 6, "any", false, false)) {gp.player.worldX = 0; gp.player.worldY = 0;}
+        if (hit(0, 0, "any", false, false )) {System.out.println("pute");}
+        if (hit(24, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
+        if (hit(25, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
+        if (hit(26, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
 
     }
 

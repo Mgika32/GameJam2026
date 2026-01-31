@@ -18,6 +18,9 @@ public class Player extends entity{
     public final int screenX;
     public final int screenY;
 
+    public boolean multiMaskOn = false;
+    public boolean borelMaskOn = false;
+
 
     public Player(GamePanel gp, KeyHandler keyH) {
 
@@ -62,7 +65,14 @@ public class Player extends entity{
                 case "MultiMask":
                     gp.player.inventory[0] = gp.Mask[i];
                     gp.Mask[i] = null;
-                    System.out.println("got it");
+                    System.out.println("got multi");
+                    gp.player.multiMaskOn = true;
+                    break;
+                case "BorelMask":
+                    gp.player.inventory[1] = gp.Mask[i];
+                    gp.player.borelMaskOn = true;
+                    gp.Mask[i] = null;
+                    System.out.println("got borel");
                     break;
             }
         }
@@ -130,7 +140,6 @@ public class Player extends entity{
             }
         }}
         else {
-            //maj daddydier UwU trop baka
             spriteNum = 1;
         }
 
