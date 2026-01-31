@@ -1,7 +1,6 @@
 package main;
 
 import DisplayObject.*;
-import Mask.SuperMask;
 import Monster.MON_GreenSlime;
 
 public class AssetSetter {
