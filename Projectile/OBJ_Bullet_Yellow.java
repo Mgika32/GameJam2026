@@ -14,7 +14,7 @@ public class OBJ_Bullet_Yellow extends Projectile {
         this.gp = gp;
 
         name = "Yellow Bullet";
-        speed = 10; // Beaucoup plus rapide que le joueur
+        speed = 15; // Beaucoup plus rapide que le joueur
         maxLife = 80; // La balle disparaît après 80 frames si elle ne touche rien
         life = maxLife;
         attack = 1; // Dégâts de la balle (pour plus tard)

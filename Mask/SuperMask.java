@@ -30,6 +30,7 @@ public class SuperMask {
 
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         }
+        g2.drawImage(image, 2*gp.tileSize, 2*gp.tileSize, null);
     }
 
 }

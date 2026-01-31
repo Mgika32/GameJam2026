@@ -2,6 +2,7 @@ package main;
 
 import DisplayObject.SuperDisplayObject;
 import Entity.Player;
+import Mask.BorelMask;
 import Mask.MultiMask;
 import Mask.SuperMask;
 import java.awt.Color;
@@ -125,6 +126,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         player1.update();
 
+
         if (currentMap == 0) {
             eHandler.checkEventMap0();
         } 
@@ -227,6 +229,10 @@ public class GamePanel extends JPanel implements Runnable{
             }
     }
         
+        // affichage du nombre de mask 
+        g2.setFont(g2.getFont().deriveFont(20F));
+        g2.setColor(Color.WHITE);
+        g2.drawString("X " + player1.maskCount, 3*tileSize, 3*tileSize);
 
         g2.dispose();
 

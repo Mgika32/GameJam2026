@@ -16,6 +16,8 @@ public class Player extends entity{
     KeyHandler keyH;
     public SuperMask[] inventory = new SuperMask[6];
 
+    public int maskCount = 0;
+
     public final int screenX;
     public final int screenY;
 
@@ -76,12 +78,14 @@ public class Player extends entity{
                     gp.Mask[i] = null;
                     System.out.println("got multi");
                     gp.player1.multiMaskOn = true;
+                    maskCount++;
                     break;
                 case "BorelMask":
                     gp.player1.inventory[1] = gp.Mask[i];
                     gp.player1.borelMaskOn = true;
                     gp.Mask[i] = null;
                     System.out.println("got borel");
+                    maskCount++;
                     break;
             }
         }
