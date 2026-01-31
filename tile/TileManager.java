@@ -9,11 +9,11 @@ import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.UtilityTool;
 
-public class TileManager {
-    GamePanel gp;
-    public Tile[] tile;
-    public int mapTileNum[][];
-    public String path = "/res/map/map0.txt";
+    public class TileManager {
+        GamePanel gp;
+        public Tile[] tile;
+        public int mapTileNum[][];
+        public String path = "/res/map/map0.txt";
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
