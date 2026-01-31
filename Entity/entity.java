@@ -26,8 +26,7 @@ public class entity {
     public boolean spawn = true;
     public int spriteCounter = 0;
     public int spriteNum = 1;
-    public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
-    public int solidAreaDefautlX,solidAreaDefautlY;
+    public Rectangle solidArea = new Rectangle(0, 0, 32, 32);
     public boolean collisionON = false;
     public int actionLockCounter = 0;
     public String dialogue[] = new String[20];
