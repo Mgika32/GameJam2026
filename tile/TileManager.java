@@ -44,6 +44,8 @@ import main.UtilityTool;
         // Terrain
         setup(10, "grass", false);
         setup(20, "path", false);
+        setup(23, "WhiteGround", false);
+        setup(24, "TeacherPlanks", false);
         setup(25, "BlackGround", false);
         setup(26, "WoodPlanks", false);
         setup(27, "StairsFrontLeft", false);
