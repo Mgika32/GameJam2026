@@ -14,7 +14,7 @@ import main.UtilityTool;
         GamePanel gp;
         public Tile[] tile;
         public int mapTileNum[][];
-        public String path = "/res/map/map6.txt";
+        public String path = "/res/map/map0.txt";
 
     public TileManager(GamePanel gp) {
         this.gp = gp;
