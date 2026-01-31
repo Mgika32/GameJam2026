@@ -47,15 +47,23 @@ import main.UtilityTool;
         setup(20, "path", false);
         setup(23, "WhiteGround", false);
         setup(24, "TeacherPlanks", false);
-        setup(25, "BlackGround", false);
+        setup(25, "grey_floor", false);
         setup(26, "WoodPlanks", false);
         setup(27, "StairsFrontLeft", false);
         setup(28, "StairsFrontRight", false);
         setup(30, "wall", true);
-        setup(31, "WallFront", true);
-        setup(32, "WallCrossRight", true);
-        setup(33, "WallSide", true);
+        setup(31, "gvertical_wall", true);
+        setup(32, "gWallCrossRight", true);
+        setup(33, "ghorizontal_wall", true);
+        setup(34, "gWallCrossLeft", true);
+        setup(35, "gbottom_left_corner", true);
+        setup(36, "gbottom_right_corner", true);
+        setup(37, "gtop_left_corner", true);
+        setup(38, "gtop_right_corner", true);
+        setup(39, "gWallCrossTop", true);
+        setup(40, "gWallCrossBotom", true);
         setup(50, "Collision", true);
+        
 
         // Objets
         setup(51, "Chair", false);
