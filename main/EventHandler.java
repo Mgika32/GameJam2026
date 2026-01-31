@@ -45,6 +45,7 @@ public class EventHandler {
         }  
         if (hit(28, 45, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
         if (hit(28, 45, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+        if (hit(28, 45, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
         if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
         if (hit(39, 36, "any", false, false)) {System.out.println("Switching to map 4");switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
     }
