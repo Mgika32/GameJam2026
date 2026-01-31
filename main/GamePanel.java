@@ -130,7 +130,10 @@ public class GamePanel extends JPanel implements Runnable{
         } 
         else if (currentMap == 1) {
             eHandler.checkEventMap1();
-        }
+        }  
+        else if (currentMap == 2) { // AJOUT
+            eHandler.checkEventMap2();
+}
         for(int i = 0; i < projectileList.size(); i++) {
             if(projectileList.get(i) != null) {
                 if(projectileList.get(i).alive == true) {

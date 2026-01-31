@@ -36,11 +36,19 @@ public class EventHandler {
         if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
-
+        if (hit(45, 12, "any", false, false)) { 
+            switchMap(2, "/res/map/map2.txt", 50, 50, 25, 40); 
+        }
+            
     }
 
-    int currentButtonNeeded = 0; // On commence par le bouton 0
-    int totalButtons = 6;        // Nombre total de boutons dans la chaîne
+    public void checkEventMap2() {}
+    
+    
+
+    int currentButtonNeeded = 0; 
+    int totalButtons = 6;        
+    
 
     public void interactButton(int i) {
         // On vérifie si l'objet touché est bien un bouton
@@ -74,7 +82,6 @@ public class EventHandler {
     }
 
     public void openDoor() {
-        System.out.println("La porte s'ouvre !");
         for (int i = 0; i < gp.display.length; i++) {
             if (gp.display[i] != null && gp.display[i].name.equals("Door")) {
                 gp.display[i] = null; 
@@ -86,10 +93,10 @@ public class EventHandler {
         if (hit(26, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
         if (hit(27, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
         if (hit(25, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
-        if (hit(32, 23, "up", false, false)) {gp.under = false; System.out.println("Under: " + gp.under);}
-        if (hit(32, 23, "down", false, false)) {gp.under = true; System.out.println("Under: " + gp.under);}
-        if (hit(31, 23, "up", false, false)) {gp.under = false; System.out.println("Under: " + gp.under);}
-        if (hit(31, 23, "down", false, false)) {gp.under = true; System.out.println("Under: " + gp.under);}
+        if (hit(32, 23, "up", false, false)) {gp.under = false; }
+        if (hit(32, 23, "down", false, false)) {gp.under = true;}
+        if (hit(31, 23, "up", false, false)) {gp.under = false; }
+        if (hit(31, 23, "down", false, false)) {gp.under = true;}
     }
 
     public boolean hit(int eventCol, int eventRow, String reqDirection, boolean isLarge, boolean isHeight) {
@@ -137,6 +144,8 @@ public class EventHandler {
         System.out.println("Player life: " + gp.player1.life);
     }
 
+    
+
     public void switchMap(int mapIndex, String path, int cols, int rows, int spawnX, int spawnY) {
         gp.currentMap = mapIndex;
         
@@ -157,6 +166,10 @@ public class EventHandler {
                 gp.aSetter.setDisplayObjectMap1();
                 gp.aSetter.setMaskMap1();
                 gp.player1.speed = 5;
+                break;
+            case 2:
+                gp.aSetter.setDisplayObjectMap2();
+                gp.aSetter.setMaskMap2();
                 break;
             default:
                 break;

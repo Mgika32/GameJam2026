@@ -42,6 +42,7 @@ import main.UtilityTool;
 
     public void getTileImage() {
         // Terrain
+        setup(0, "grass", false);
         setup(10, "grass", false);
         setup(20, "path", false);
         setup(23, "WhiteGround", false);
