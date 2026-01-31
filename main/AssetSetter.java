@@ -20,9 +20,7 @@ public class AssetSetter {
         gp.Mask[1].worldY = 4 * gp.tileSize;
     }
     public void setDisplayObjectMap0() {
-        gp.display[0] = new DisplayBridge();
-        gp.display[0].worldX = 25* gp.tileSize;
-        gp.display[0].worldY = 12 * gp.tileSize;
+        
 
     }
 
