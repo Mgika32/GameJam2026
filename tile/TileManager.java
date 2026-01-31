@@ -70,7 +70,7 @@ import main.UtilityTool;
         setup(52, "Table", true);
         setup(53, "RuChair", false);
         setup(54, "RuTable", true);
-
+        setup(55, "Bookshelf", true);
 
     }
 
