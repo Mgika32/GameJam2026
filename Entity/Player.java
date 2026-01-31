@@ -7,6 +7,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import main.GamePanel;
 import main.KeyHandler;
+import Projectile.OBJ_Bullet_Yellow;
+import Projectile.Projectile;
 
 public class Player extends entity{
 
@@ -17,8 +19,14 @@ public class Player extends entity{
     public final int screenX;
     public final int screenY;
 
+    public int shotAvailableCounter = 0;
+    Projectile projectile;
+
     public boolean multiMaskOn = false;
     public boolean borelMaskOn = false;
+
+    public boolean invincible = false;
+    public int invincibleCounter = 0;
 
 
     public Player(GamePanel gp, KeyHandler keyH) {
@@ -28,6 +36,8 @@ public class Player extends entity{
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
         screenY = gp.screenHeight/2 - (gp.tileSize/2);
+
+        projectile = new OBJ_Bullet_Yellow(gp);
 
         setDefaultValues();
         getPlayerImage();
@@ -80,6 +90,38 @@ public class Player extends entity{
 
     public void update() {
     
+
+        if (keyH.spacePressed == true && shotAvailableCounter == 30) {
+
+            int bulletX = this.worldX;
+            int bulletY = this.worldY;
+
+            switch(direction) {
+                case "up":    bulletX += 8; bulletY -= 16; break;
+                case "down":  bulletX += 8; bulletY += 32; break;
+                case "left":  bulletX -= 16; bulletY += 8; break;
+                case "right": bulletX += 32; bulletY += 8; break;
+            }
+
+            // 2. On active la balle
+            projectile.set(bulletX, bulletY, this.direction, true, this);
+
+            // 3. On l'ajoute à la liste du GamePanel
+            gp.projectileList.add(projectile);
+
+            // 4. On prépare la prochaine balle (sinon on ajouterait toujours la même référence)
+            projectile = new OBJ_Bullet_Yellow(gp);
+
+            // 5. On reset le cooldown
+            shotAvailableCounter = 0;
+
+            // Optionnel : Jouer un son de tir ici
+        }
+
+        // Gestion du cooldown (attendre 30 frames entre chaque tir)
+        if(shotAvailableCounter < 30) {
+            shotAvailableCounter++;
+        }
         // On ne fait l'update que si une touche est pressée
         if (keyH.upPressed == true || keyH.downPressed == true || 
             keyH.leftPressed == true || keyH.rightPressed == true) {
@@ -141,6 +183,15 @@ public class Player extends entity{
         } else {
             // Si aucune touche n'est pressée, on remet le sprite au repos
             spriteNum = 1;
+        }
+
+                // Gestion de l'invincibilité (clignotement ou délai)
+        if(invincible == true) {
+            invincibleCounter++;
+            if(invincibleCounter > 60) { // 1 seconde d'invincibilité
+                invincible = false;
+                invincibleCounter = 0;
+            }
         }
     }    
 

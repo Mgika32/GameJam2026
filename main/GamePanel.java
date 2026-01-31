@@ -10,6 +10,9 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import tile.TileManager;
+import java.util.ArrayList;
+import Projectile.Projectile;
+import Entity.entity;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -40,6 +43,7 @@ public class GamePanel extends JPanel implements Runnable{
  
     public SuperMask[] Mask = new SuperMask[10];
     public SuperDisplayObject[] display = new SuperDisplayObject[100];
+    public entity monster[] = new entity[20];
 
     public CollisionChecker cChecker = new CollisionChecker(this);
     public EventHandler eHandler = new EventHandler(this);
@@ -47,7 +51,9 @@ public class GamePanel extends JPanel implements Runnable{
     AssetSetter aSetter = new AssetSetter(this);
     public boolean under = true;
     public int currentMap = 0;
-    
+
+
+    public ArrayList<Projectile> projectileList = new ArrayList<>();
 
 
     public GamePanel() {
@@ -63,6 +69,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         aSetter.setMaskMap0();
         aSetter.setDisplayObjectMap0();
+        aSetter.setMonster();
         
     }
 
@@ -120,9 +127,34 @@ public class GamePanel extends JPanel implements Runnable{
 
         if (currentMap == 0) {
             eHandler.checkEventMap0();
-        } else if (currentMap == 1) {
+        } 
+        else if (currentMap == 1) {
             eHandler.checkEventMap1();
-    }
+        }
+        for(int i = 0; i < projectileList.size(); i++) {
+            if(projectileList.get(i) != null) {
+                if(projectileList.get(i).alive == true) {
+                    // Si la balle est vivante, on la met à jour (déplacement, collision)
+                    projectileList.get(i).update();
+                }
+                if(projectileList.get(i).alive == false) {
+                    // Si elle est morte (a touché un mur), on la supprime de la liste
+                    projectileList.remove(i);
+                    i--; // Important : on décrémente i car la liste a rétréci
+                }
+            }
+        }
+
+        for(int i = 0; i < monster.length; i++) {
+            if(monster[i] != null) {
+                if(monster[i].alive == true && monster[i].dying == false) {
+                    monster[i].update();
+                }
+                if(monster[i].alive == false) {
+                    monster[i] = null; // On supprime le monstre mort
+                }
+            }
+}
         
     }
 
@@ -164,6 +196,18 @@ public class GamePanel extends JPanel implements Runnable{
             player1.draw(g2);
         }
 
+        for(int i = 0; i < projectileList.size(); i++) {
+            if(projectileList.get(i) != null && projectileList.get(i).alive == true) {
+                projectileList.get(i).draw(g2);
+            }
+        }
+
+        for(int i = 0; i < monster.length; i++) {
+            if(monster[i] != null) {
+                monster[i].draw(g2); // Si tu as mis la méthode draw dans MON_GreenSlime
+                // Sinon utilise : monster[i].draw(g2, this); si c'est dans Entity
+            }
+    }
         
 
         g2.dispose();
