@@ -6,15 +6,15 @@ import javax.imageio.ImageIO;
 
 import java.awt.*;
 
-public class Collision extends SuperDisplayObject{
+public class CollisionUnder extends SuperDisplayObject{
 
     public boolean onlyBlocksWhenUnder = true;
 
 
-    public Collision() {
+    public CollisionUnder() {
         solidArea = new Rectangle(16,16,2,2);
         
-        name = "Collision";
+        name = "CollisionUnder";
         x = 8;
         y = 16;
         spawn = true;

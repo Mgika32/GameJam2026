@@ -39,7 +39,7 @@ public class GamePanel extends JPanel implements Runnable{
     MultiMask mask0 = new MultiMask();
  
     public SuperMask[] Mask = new SuperMask[10];
-    public SuperDisplayObject[] display = new SuperDisplayObject[30];
+    public SuperDisplayObject[] display = new SuperDisplayObject[100];
 
     public CollisionChecker cChecker = new CollisionChecker(this);
     public EventHandler eHandler = new EventHandler(this);
