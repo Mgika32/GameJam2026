@@ -34,16 +34,13 @@ public class OBJ_Bullet_Yellow extends Projectile {
 
         g2.setColor(Color.RED);
         
-        // On dessine un rectangle fin selon la direction pour faire un trait
         switch(direction) {
             case "up":
             case "down":
-                 // Trait vertical (plus haut que large)
                  g2.fillRect(screenX + 14, screenY + 8, 4, 16);
                  break;
             case "left":
             case "right":
-                 // Trait horizontal (plus large que haut)
                  g2.fillRect(screenX + 8, screenY + 14, 16, 4);
                  break;
         }
