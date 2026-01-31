@@ -25,7 +25,6 @@ public class Button extends SuperDisplayObject {
 
     public void getButtonImages() {
         try {
-            // Assure-toi que ces fichiers existent dans ton dossier res/DisplayObject/
             imgInactif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCBlackScreen.png"));
             imgActif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCBlueScreen.png"));
             imgAppuye = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCRedScreen.png"));
