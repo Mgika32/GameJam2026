@@ -49,7 +49,9 @@ import main.UtilityTool;
         setup(30, "wall", true);
         setup(50, "Collision", true);
 
-        
+        // Objets
+        setup(51, "Chair", false);
+        setup(52, "Table", false);
     }
 
 
