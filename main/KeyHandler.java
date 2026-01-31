@@ -5,10 +5,16 @@ import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+
+        GamePanel gp;
         public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
     
         public void keyTyped(KeyEvent e) {
        
+    }
+
+    public KeyHandler(GamePanel gp) {
+        this.gp = gp;
     }
 
     
@@ -30,6 +36,12 @@ public class KeyHandler implements KeyListener {
         }
         if (code == KeyEvent.VK_ENTER){
             enterPressed = true;
+        }
+        if (code == KeyEvent.VK_L) {
+            gp.under = true;
+        }
+        if (code == KeyEvent.VK_K) {
+            gp.under = false;
         }
     }
 

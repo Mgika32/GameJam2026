@@ -32,9 +32,9 @@ public class EventHandler {
     public void checkEvent() {
 
         if (hit(0, 0, "any", false, false )) {System.out.println("pute");}
-        if (hit(24, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
-        if (hit(25, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
-        if (hit(26, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;}
+        if (hit(24, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0; gp.under = false;}
+        if (hit(25, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;gp.under = false;}
+        if (hit(26, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;gp.under = false;}
 
     }
 
@@ -67,7 +67,25 @@ public class EventHandler {
         
     }
 
+    public void takeDamage(int damage) {
+        gp.player.life -= damage;
+        if (gp.player.life < 0) {
+            gp.player.life = 0;
+        }
+        System.out.println("Player life: " + gp.player.life);
+    }
 
-    
+    public void heal(int heal) {
+        gp.player.life += heal;
+        if (gp.player.life > gp.player.maxLife) {
+            gp.player.life = gp.player.maxLife;
+        }
+        System.out.println("Player life: " + gp.player.life);
+    }
+
+    public void switchMap(String path) {
+        gp.TileM.path = path;
+    }
+
 
 }

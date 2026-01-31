@@ -1,5 +1,6 @@
 package main;
 
+import DisplayObject.*;
 
 public class AssetSetter {
 
@@ -18,8 +19,10 @@ public class AssetSetter {
         gp.Mask[1].worldX = 25 * gp.tileSize;
         gp.Mask[1].worldY = 4 * gp.tileSize;
     }
-    public void setNPC() {
-        
+    public void setDisplayObject() {
+        gp.display[0] = new DisplayBridge();
+        gp.display[0].worldX = 25* gp.tileSize;
+        gp.display[0].worldY = 12 * gp.tileSize;
 
 
     }
