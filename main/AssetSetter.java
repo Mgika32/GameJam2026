@@ -13,6 +13,10 @@ public class AssetSetter {
         gp.Mask[0] = new Mask.MultiMask();
         gp.Mask[0].worldX = 10 * gp.tileSize;
         gp.Mask[0].worldY = 7 * gp.tileSize;
+
+        gp.Mask[1] = new Mask.BorelMask();
+        gp.Mask[1].worldX = 25 * gp.tileSize;
+        gp.Mask[1].worldY = 4 * gp.tileSize;
     }
     public void setNPC() {
         
