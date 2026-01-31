@@ -32,7 +32,7 @@ public class OBJ_Bullet_Yellow extends Projectile {
         int screenX = worldX - gp.player1.worldX + gp.player1.screenX;
         int screenY = worldY - gp.player1.worldY + gp.player1.screenY;
 
-        g2.setColor(Color.WHITE);
+        g2.setColor(Color.RED);
         
         // On dessine un rectangle fin selon la direction pour faire un trait
         switch(direction) {
