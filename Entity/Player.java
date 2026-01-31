@@ -1,11 +1,10 @@
 package Entity;
 
+import Mask.SuperMask;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-
-import Mask.SuperMask;
 import main.GamePanel;
 import main.KeyHandler;
 
@@ -63,14 +62,14 @@ public class Player extends entity{
         if (i != 999) {
             switch (gp.Mask[i].name) {
                 case "MultiMask":
-                    gp.player.inventory[0] = gp.Mask[i];
+                    gp.player1.inventory[0] = gp.Mask[i];
                     gp.Mask[i] = null;
                     System.out.println("got multi");
-                    gp.player.multiMaskOn = true;
+                    gp.player1.multiMaskOn = true;
                     break;
                 case "BorelMask":
-                    gp.player.inventory[1] = gp.Mask[i];
-                    gp.player.borelMaskOn = true;
+                    gp.player1.inventory[1] = gp.Mask[i];
+                    gp.player1.borelMaskOn = true;
                     gp.Mask[i] = null;
                     System.out.println("got borel");
                     break;

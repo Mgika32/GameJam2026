@@ -1,16 +1,14 @@
 package main;
 
+import DisplayObject.SuperDisplayObject;
 import Entity.Player;
 import Mask.MultiMask;
 import Mask.SuperMask;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import javax.swing.JPanel;
-
-import DisplayObject.SuperDisplayObject;
 import tile.TileManager;
 
 public class GamePanel extends JPanel implements Runnable{
@@ -34,7 +32,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     KeyHandler keyH = new KeyHandler(this);
     Thread gameThread;
-    public Player player = new Player(this, keyH);
+    public Player player1 = new Player(this, keyH);
 
     //INSTANCE
     TileManager TileM = new TileManager(this);
@@ -105,7 +103,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void update() {
 
-        player.update();
+        player1.update();
         
     }
 
@@ -128,7 +126,7 @@ public class GamePanel extends JPanel implements Runnable{
 
 
         if (under == true) {
-            player.draw(g2);
+            player1.draw(g2);
 
             for (int j = 0; j < display.length; j ++) {
                 if (display[j] != null) {
@@ -144,7 +142,7 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
 
-            player.draw(g2);
+            player1.draw(g2);
         }
         
 

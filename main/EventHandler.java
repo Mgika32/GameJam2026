@@ -32,17 +32,17 @@ public class EventHandler {
     public void checkEvent() {
 
         if (hit(0, 0, "any", false, false )) {System.out.println("pute");}
-        if (hit(24, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0; gp.under = false;}
-        if (hit(25, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;gp.under = false;}
-        if (hit(26, 6, "any", false, false)&& gp.player.multiMaskOn == false) {gp.player.worldX = 0; gp.player.worldY = 0;gp.under = false;}
+        if (hit(24, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0; gp.under = false;}
+        if (hit(25, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0;gp.under = false;}
+        if (hit(26, 6, "any", false, false)&& gp.player1.multiMaskOn == false) {gp.player1.worldX = 0; gp.player1.worldY = 0;gp.under = false;}
 
     }
 
     public boolean hit(int eventCol, int eventRow, String reqDirection, boolean isLarge, boolean isHeight) {
         boolean hit = false;
 
-        gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
-        gp.player.solidArea.y = gp.player.worldY + gp.player.solidArea.y;
+        gp.player1.solidArea.x = gp.player1.worldX + gp.player1.solidArea.x;
+        gp.player1.solidArea.y = gp.player1.worldY + gp.player1.solidArea.y;
 
         Rectangle targetRect = isLarge ? eventRectLarge : eventRect;
         
@@ -50,14 +50,14 @@ public class EventHandler {
         targetRect.y = eventRow * gp.tileSize + eventRectDefaultY;
 
         // 3. Vérifier l'intersection
-        if (gp.player.solidArea.intersects(targetRect)) {
-            if (gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
+        if (gp.player1.solidArea.intersects(targetRect)) {
+            if (gp.player1.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")) {
                 hit = true;
             }
         }
 
-        gp.player.solidArea.x = gp.player.solidAreaDefaultX;
-        gp.player.solidArea.y = gp.player.solidAreaDefaultY;
+        gp.player1.solidArea.x = gp.player1.solidAreaDefaultX;
+        gp.player1.solidArea.y = gp.player1.solidAreaDefaultY;
         
         
         return hit;
@@ -68,19 +68,19 @@ public class EventHandler {
     }
 
     public void takeDamage(int damage) {
-        gp.player.life -= damage;
-        if (gp.player.life < 0) {
-            gp.player.life = 0;
+        gp.player1.life -= damage;
+        if (gp.player1.life < 0) {
+            gp.player1.life = 0;
         }
-        System.out.println("Player life: " + gp.player.life);
+        System.out.println("Player life: " + gp.player1.life);
     }
 
     public void heal(int heal) {
-        gp.player.life += heal;
-        if (gp.player.life > gp.player.maxLife) {
-            gp.player.life = gp.player.maxLife;
+        gp.player1.life += heal;
+        if (gp.player1.life > gp.player1.maxLife) {
+            gp.player1.life = gp.player1.maxLife;
         }
-        System.out.println("Player life: " + gp.player.life);
+        System.out.println("Player life: " + gp.player1.life);
     }
 
     public void switchMap(String path) {
