@@ -344,12 +344,31 @@ public class AssetSetter {
     }
 
     public void setDisplayObjectMap4() {
-        
+
         gp.display[0] = new Door();
         gp.display[0].name = "Door";
         gp.display[0].collision = true;
-        gp.display[0].worldX = 33 * gp.tileSize;
-        gp.display[0].worldY = 31 * gp.tileSize;
+        gp.display[0].worldX = 57 * gp.tileSize;
+        gp.display[0].worldY = 39 * gp.tileSize;
+        
+        gp.display[1] = new Door();
+        gp.display[1].name = "Door";
+        gp.display[1].collision = true;
+        gp.display[1].worldX = 57 * gp.tileSize;
+        gp.display[1].worldY = 38 * gp.tileSize;
+
+        gp.display[2] = new Door();
+        gp.display[2].name = "Door";
+        gp.display[2].collision = true;
+        gp.display[2].worldX = 57 * gp.tileSize;
+        gp.display[2].worldY = 37 * gp.tileSize;
+
+        gp.display[3] = new Button(1);
+        gp.display[3].worldX = 1 * gp.tileSize;
+        gp.display[3].worldY = 20 * gp.tileSize;
+        ((Button)gp.display[3]).state = 1;
+
+
 
     }
 
@@ -361,7 +380,7 @@ public class AssetSetter {
     }
 
     public void setMaskMap4() {
-        
+
     }
 
 }

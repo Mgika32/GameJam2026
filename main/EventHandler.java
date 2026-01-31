@@ -99,6 +99,25 @@ public class EventHandler {
         }
     }
 
+    public void interactButtonMap4(int i) {
+        // On vérifie si l'objet touché est bien un bouton
+        if (gp.display[i] instanceof Button) {
+            Button btn = (Button) gp.display[i];
+            if (btn.buttonID == currentButtonNeeded && btn.state == 1) {
+                btn.state = 2; // Il devient rouge
+                currentButtonNeeded++; // On attend le suivant
+
+                // Est-ce que c'était le dernier ?
+                if (currentButtonNeeded == totalButtons) {
+                    openDoor();
+                } else {
+                    // On active le bouton suivant (il devient bleu)
+                    activateNextButton();
+                }
+            }
+        }
+    }
+
     public void openDoor() {
         for (int i = 0; i < gp.display.length; i++) {
             if (gp.display[i] != null && gp.display[i].name.equals("Door")) {
