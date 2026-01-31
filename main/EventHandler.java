@@ -1,6 +1,8 @@
 package main;
 
 import DisplayObject.Button;
+import DisplayObject.boutonPorte;
+
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -101,6 +103,61 @@ public class EventHandler {
         if (hit(-1, 46, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
     }
         
+public void openDoorById(int idToFind) {
+    for (int i = 0; i < gp.display.length; i++) {
+        if (gp.display[i] instanceof DisplayObject.DoorLab) {
+            DisplayObject.DoorLab door = (DisplayObject.DoorLab) gp.display[i];
+            
+            if (door.doorID == idToFind) {
+                gp.display[i] = null;
+                System.out.println("PORTE OUVERTE : ID " + idToFind);
+            }
+        }
+    }
+}
+
+    // Remplace ta méthode interactButton par celle-ci
+    public void interactButtonMap4(int i) {
+        
+        // Sécurité anti-crash
+        if (i == 999 || gp.display[i] == null) return;
+
+        if (gp.display[i] instanceof boutonPorte) {
+            boutonPorte btn = (boutonPorte) gp.display[i];
+
+            // --- TYPE 1 : Bouton Simple (Liaison ID) ---
+            // Si le bouton a une cible (différent de -1) et n'est pas déjà appuyé
+            if (btn.doorToOpen != -1 && btn.state == 0) {
+                btn.state = 2; // Passe au rouge
+                openDoorById(btn.doorToOpen); // Ouvre la porte associée
+            }
+
+            // --- TYPE 2 : Bouton Puzzle (Séquence) ---
+            // Si le bouton n'a pas de cible (-1), c'est l'ancien système de puzzle
+            else if (btn.doorToOpen == -1 && btn.buttonID == currentButtonNeeded && btn.state == 1) {
+                btn.state = 2; 
+                currentButtonNeeded++; 
+
+                if (currentButtonNeeded == totalButtons) {
+                    openPuzzleDoor(); // Ouvre la porte du puzzle final
+                } else {
+                    activateNextButton();
+                }
+            }
+        }
+    }
+
+    // Renomme ton ancienne méthode openDoor en openPuzzleDoor pour éviter les conflits
+    public void openPuzzleDoor() {
+        System.out.println("Puzzle fini !");
+        for (int i = 0; i < gp.display.length; i++) {
+            // Cette méthode cherche juste une porte nommée "Door" sans ID spécifique
+            if (gp.display[i] != null && gp.display[i].name.equals("DoorLab") && !(gp.display[i] instanceof DisplayObject.DoorLab)) {
+                gp.display[i] = null; 
+            }
+            // Si tu veux qu'elle ouvre aussi les OBJ_Door sans ID, adapte ici
+        }
+    }
     
 
     int currentButtonNeeded = 0; 
@@ -138,24 +195,7 @@ public class EventHandler {
         }
     }
 
-    public void interactButtonMap4(int i) {
-        // On vérifie si l'objet touché est bien un bouton
-        if (gp.display[i] instanceof Button) {
-            Button btn = (Button) gp.display[i];
-            if (btn.buttonID == currentButtonNeeded && btn.state == 1) {
-                btn.state = 2; // Il devient rouge
-                currentButtonNeeded++; // On attend le suivant
-
-                // Est-ce que c'était le dernier ?
-                if (currentButtonNeeded == totalButtons) {
-                    openDoor();
-                } else {
-                    // On active le bouton suivant (il devient bleu)
-                    activateNextButton();
-                }
-            }
-        }
-    }
+    
 
     public void openDoor() {
         for (int i = 0; i < gp.display.length; i++) {
