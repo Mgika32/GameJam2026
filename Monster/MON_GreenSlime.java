@@ -1,11 +1,11 @@
 package Monster;
 
 import Entity.entity;
-import main.GamePanel;
 import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Random;
+import main.GamePanel;
 
 public class MON_GreenSlime extends entity {
 
@@ -15,8 +15,8 @@ public class MON_GreenSlime extends entity {
         this.gp = gp;
 
         name = "Green Slime";
-        speed = 1; // Il est lent
-        maxLife = 4;
+        speed = 3; // 
+        maxLife = 3;
         life = maxLife;
         type = 2; // 0 = player, 1 = npc, 2 = monster
 
