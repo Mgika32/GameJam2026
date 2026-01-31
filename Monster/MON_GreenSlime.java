@@ -7,6 +7,8 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.util.Random;
 
+import javax.imageio.ImageIO;
+
 public class MON_GreenSlime extends entity {
 
     GamePanel gp;
@@ -14,6 +16,13 @@ public class MON_GreenSlime extends entity {
     public MON_GreenSlime(GamePanel gp) {
         this.gp = gp;
 
+        try {
+            imageLeft = ImageIO.read(getClass().getResourceAsStream("/res/mobs/fantome1.png")); 
+            imageRight = ImageIO.read(getClass().getResourceAsStream("/res/mobs/fantome2.png"));
+            image = imageLeft;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         name = "Green Slime";
         speed = 1; // Il est lent
         maxLife = 4;
@@ -35,8 +44,8 @@ public class MON_GreenSlime extends entity {
 
             if(i <= 25) { direction = "up"; }
             if(i > 25 && i <= 50) { direction = "down"; }
-            if(i > 50 && i <= 75) { direction = "left"; }
-            if(i > 75 && i <= 100) { direction = "right"; }
+            if(i > 50 && i <= 75) { direction = "left"; image = imageLeft; }
+            if(i > 75 && i <= 100) { direction = "right"; image = imageRight; }
 
             actionLockCounter = 0;
         }
@@ -71,12 +80,10 @@ public class MON_GreenSlime extends entity {
         }
     }
     
-    // Dessin simple (Carré vert) si tu n'as pas d'images
     public void draw(Graphics2D g2) {
         int screenX = worldX - gp.player1.worldX + gp.player1.screenX;
         int screenY = worldY - gp.player1.worldY + gp.player1.screenY;
 
-        g2.setColor(Color.GREEN);
-        g2.fillRect(screenX, screenY, gp.tileSize, gp.tileSize);
+        g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
     }
 }
