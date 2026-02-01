@@ -149,11 +149,11 @@ public class EventHandler {
         if (hit(20, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
         if (hit(21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
 
-        if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
-        if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
-        if (hit(9, 19, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
+        if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,24,31);}
+        if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,24,31);}
+        if (hit(9, 19, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,24,31);}
 
-        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
+        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,5,48);}
 
         if (hit(9, 39, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,25,31);}
         if (hit(9, 40, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,25,31);}
@@ -270,12 +270,14 @@ public class EventHandler {
     }
 
     public void checkEventMap3() {
-        
-        if (hit(20, 20, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,32,11,18);}
-
+                
+        if (hit(22, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,11,18);}
+        if (hit(23, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,11,18);}
+        if (hit(24, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,11,18);}
     }
 
     public void checkEventMap4() {
+        if (hit(3, 50, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,39,36);}
         
     }
 
