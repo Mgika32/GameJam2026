@@ -42,10 +42,7 @@ public class EventHandler {
         if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(38, 17, "any", false, false) || hit(38, 18, "any", false, false) || hit(38, 19, "any", false, false)) { 
-            switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30); 
-        }  
-        if (hit(20, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
-        if (hit(21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+            switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30);}  
 
         if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
         if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
@@ -54,6 +51,10 @@ public class EventHandler {
         if (hit(39, 37, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,2,50);}
         if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,3,50);}
         if (hit(39, 35, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,3,50);}
+        
+        if (hit(20, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+        if (hit(21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+
     }
 
 
@@ -98,6 +99,13 @@ public class EventHandler {
             allMobsDeads = true;
         }
     }
+    public void checkEventMap4() {
+
+        if (hit(7, 50, "any", false, false)) {switchMap(1, "/res/map/map0.txt",50,50,39,36);}
+
+    }
+
+    
 
     public void checkEventMap6() {
         if (hit(-1, 44, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
@@ -278,13 +286,7 @@ public void openDoorById(int idToFind) {
         
 }
 
-    public void checkEventMap3() {
-       
-    }
 
-    public void checkEventMap4() {
-        
-    }
 
     public void checkEventMap5() {
         
@@ -313,7 +315,5 @@ public void openDoorById(int idToFind) {
             }
         }
     }
-
-
 
 }
