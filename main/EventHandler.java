@@ -208,16 +208,7 @@ public class EventHandler {
             allMobsDeads = true;
         }
     }
-    
-    public void checkEventMap3() {}
-    
-    public void checkEventMap4() {
-        // Tu peux mettre ici la sortie du labyrinthe si besoin
-    }
-    
-    public void checkEventMap5() {
-        if (hit(9, 17, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,32,50-21,30);}
-    }
+
     
     public void checkEventMap6() {
         if (hit(-1, 44, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
