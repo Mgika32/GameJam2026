@@ -51,8 +51,11 @@ public class EventHandler {
         if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
         if (hit(9, 19, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
 
-        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
+        if (hit(39, 37, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,2,50);}
+        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,3,50);}
+        if (hit(39, 35, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,3,50);}
     }
+
 
     public void checkEventMap2() {
         if (hit(38, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
