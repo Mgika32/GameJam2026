@@ -47,8 +47,29 @@ public class AssetSetter {
     }
 
     public void setDisplayObjectMap4() {
-        
-       
+        // --- PORTE 1 (Bloque un passage) ---
+        // ID: 100
+        gp.display[0] = new Door(100); 
+        gp.display[0].worldX = 25 * gp.tileSize; // Ajuste selon ton labyrinthe
+        gp.display[0].worldY = 30 * gp.tileSize;
+
+        // --- BOUTON 1 (Ouvre la porte 100) ---
+        // ID: 0, Cible: 100, Interrupteur: false
+        gp.display[1] = new Button(0, 100, false); 
+        gp.display[1].worldX = 9 * gp.tileSize; // Caché à gauche
+        gp.display[1].worldY = 35 * gp.tileSize;
+
+        // --- PORTE 2 (Passage final) ---
+        // ID: 101
+        gp.display[2] = new Door(101);
+        gp.display[2].worldX = 40 * gp.tileSize;
+        gp.display[2].worldY = 15 * gp.tileSize;
+
+        // --- BOUTON 2 (Ouvre la porte 101) ---
+        // ID: 1, Cible: 101, Interrupteur: true (ON/OFF)
+        gp.display[3] = new Button(1, 101, true); 
+        gp.display[3].worldX = 45 * gp.tileSize; // Caché à droite
+        gp.display[3].worldY = 40 * gp.tileSize;
     }
 
     public void setMonsterMap4() {
