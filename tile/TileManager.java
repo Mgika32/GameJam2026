@@ -51,6 +51,9 @@ import main.UtilityTool;
         setup(26, "WoodPlanks", false);
         setup(27, "StairsFrontLeft", false);
         setup(28, "StairsFrontRight", false);
+        setup(29, "StairsSideLeft", false);
+        setup(100, "StairsSideRight", false);
+
         setup(30, "wall", true);
 
         // Grey wall
