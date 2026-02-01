@@ -137,12 +137,22 @@ public class EventHandler {
 
     // --- EVENTS MAP 0 ---
     public void checkEventMap0() {
+        if (hit(23, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
         if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
-        
-        // Ajoute ici l'entrée vers le labyrinthe (Map 4) si tu as un bâtiment
-        // if (hit(X, Y, "any", false, false)) {switchMap(4, "/res/map/map4.txt",50,50,25,48);}
+        if (hit(38, 17, "any", false, false) || hit(38, 18, "any", false, false) || hit(38, 19, "any", false, false)) { 
+            switchMap(2, "/res/map/map2.txt", 50, 32, 24, 30); 
+        }  
+        if (hit(20, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+        if (hit(21, 46, "any", false, false)) {switchMap(6, "/res/map/map6.txt",50,50,25,2);}
+
+        if (hit(9, 17, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
+        if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
+        if (hit(9, 19, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
+
+        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
+
     }
 
     // --- EVENTS MAP 1 ---
@@ -157,11 +167,48 @@ public class EventHandler {
         if (hit(31, 23, "down", false, false)) {gp.under = true;}
     }
 
-    // --- C'EST ICI QUE TU AVAIS DES ERREURS : IL FAUT DÉFINIR CES MÉTHODES VIDES ---
     
-    public void checkEventMap2() {}
+    public void checkEventMap2() {
+        if (hit(38, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
+        if (hit(37, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
+        if (hit(39, -2, "any", false, false)) {switchMap(2.1, "/res/map/map2_1.txt",50,32,31,31);gp.aSetter.setMonster();}
+        if (hit(23, 30, "any", false, false) || hit(22, 30, "any", false, false) || hit(24, 30, "any", false, false)) { 
+            switchMap(0, "/res/map/map0.txt", 50, 70, 38, 19); 
+        }  
+        if (hit(24, 30, "any", false, false) || hit(22, 30, "any", false, false) || hit(24, 30, "any", false, false)) { 
+            switchMap(0, "/res/map/map0.txt", 50, 70, 38, 19); 
+        }
+    }
     
-    public void checkEventMap2_1() {}
+    public void checkEventMap2_1() {
+        if (hit(30, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
+        }
+        if (hit(31, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
+        }
+        if (hit(29, 31, "any", false, false)) {switchMap(2, "/res/map/map2.txt",50,32,39,0);
+            for (int i = 0; i < gp.monster.length; i++) {
+                gp.monster[i] = null;
+            }
+        }
+        if (allMobsDeads == false) {
+            checkAllMobsDeads();
+            allMobsDeads = true;
+        }
+    }
     
     public void checkEventMap3() {}
     
@@ -172,7 +219,11 @@ public class EventHandler {
     
     public void checkEventMap5() {}
     
-    public void checkEventMap6() {}
+    public void checkEventMap6() {
+        if (hit(-1, 44, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
+        if (hit(-1, 45, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
+        if (hit(-1, 46, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,18,52);}
+    }}
 
     // =========================================================================
     //                            CHANGEMENT DE MAP
@@ -220,4 +271,26 @@ public class EventHandler {
     public void hack() {}
     public void takeDamage(int damage) { gp.player1.life -= damage; }
     public void heal(int heal) { gp.player1.life += heal; }
+
+    public void checkAllMobsDeads() {
+        boolean allDead = true;
+        for (int i = 0; i < gp.monster.length; i++) {
+            if (gp.monster[i] != null) {
+                allDead = false;
+                break;
+            }
+        }
+        if (allDead) {
+        }
+    
+    public void spawnBorelMask() {
+        for (int i = 0; i < gp.Mask.length; i++) {
+            if (gp.Mask[i] == null) {
+                gp.Mask[i] = new Mask.BorelMask();
+                gp.Mask[i].worldX = 40 * gp.tileSize;
+                gp.Mask[i].worldY = 10 * gp.tileSize;
+                break;
+            }
+        }
+    }
 }

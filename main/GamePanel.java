@@ -124,7 +124,7 @@ public class GamePanel extends JPanel implements Runnable{
 
 
         player1.update();
-
+        System.out.println(currentMap);
 
         if (currentMap == 0) {
             eHandler.checkEventMap0();
@@ -132,11 +132,12 @@ public class GamePanel extends JPanel implements Runnable{
         else if (currentMap == 1) {
             eHandler.checkEventMap1();
         }  
-        else if (currentMap == 2) { // AJOUT
+        else if (currentMap == 2) { 
             eHandler.checkEventMap2();
         }
-        else if (currentMap == 2.1) {
+        else if (currentMap == 21) {
             eHandler.checkEventMap2_1();
+            System.out.println("pute");
         }
         else if (currentMap == 3) {
             eHandler.checkEventMap3();
