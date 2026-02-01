@@ -16,8 +16,8 @@ public class AssetSetter {
     // =========================================================================
     public void setMaskMap0() {
         gp.Mask[0] = new Mask.MultiMask();
-        gp.Mask[0].worldX = 0 * gp.tileSize;
-        gp.Mask[0].worldY = 50 * gp.tileSize;
+        gp.Mask[0].worldX = 20 * gp.tileSize;
+        gp.Mask[0].worldY = 20 * gp.tileSize;
     }
     
     public void setDisplayObjectMap0() {

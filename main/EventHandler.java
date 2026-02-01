@@ -1,7 +1,7 @@
 package main;
+import DisplayObject.*;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
-import DisplayObject.*; // Indispensable pour reconnaître Button et Door
+import java.awt.Rectangle; // Indispensable pour reconnaître Button et Door
 
 public class EventHandler {
     
@@ -155,7 +155,11 @@ public class EventHandler {
 
         if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
 
-        if (hit(9, 50, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,20,20);}
+        if (hit(9, 39, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,25,31);}
+        if (hit(9, 40, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,25,31);}
+        if (hit(9, 41, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,25,31);}
+
+
     }
 
     // --- EVENTS MAP 1 ---
@@ -266,7 +270,9 @@ public class EventHandler {
     }
 
     public void checkEventMap3() {
-       
+        
+        if (hit(20, 20, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,32,11,18);}
+
     }
 
     public void checkEventMap4() {
@@ -274,7 +280,10 @@ public class EventHandler {
     }
 
     public void checkEventMap5() {
-        if (hit(9, 17, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,32,50-21,30);}
+        if (hit(24, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,10,10);}
+        if (hit(25, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,10,10);}
+        if (hit(26, 31, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,10,10);}
+
     }
 
     public void checkAllMobsDeads() {
