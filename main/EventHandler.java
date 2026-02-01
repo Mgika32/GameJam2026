@@ -1,7 +1,6 @@
 package main;
 
 import DisplayObject.Button;
-
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 
@@ -103,7 +102,7 @@ public class EventHandler {
     }
     public void checkEventMap4() {
 
-        if (hit(7, 50, "any", false, false)) {switchMap(1, "/res/map/map0.txt",50,50,39,36);}
+        if (hit(7, 50, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,39,36);}
 
     }
 

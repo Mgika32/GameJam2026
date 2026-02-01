@@ -2,18 +2,17 @@ package main;
 
 import DisplayObject.SuperDisplayObject;
 import Entity.Player;
-import Mask.BorelMask;
+import Entity.entity;
 import Mask.MultiMask;
 import Mask.SuperMask;
+import Projectile.Projectile;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 import tile.TileManager;
-import java.util.ArrayList;
-import Projectile.Projectile;
-import Entity.entity;
 
 public class GamePanel extends JPanel implements Runnable{
 
