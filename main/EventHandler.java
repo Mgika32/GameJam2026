@@ -153,7 +153,7 @@ public class EventHandler {
         if (hit(9, 18, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
         if (hit(9, 19, "any", false, false)) {switchMap(3, "/res/map/map3.txt",50,32,50-21,30);}
 
-        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,50-21,30);}
+        if (hit(39, 36, "any", false, false)) {switchMap(4, "/res/map/map4.txt",67,51,5,48);}
 
         if (hit(9, 50, "any", false, false)) {switchMap(5, "/res/map/map5.txt",28,32,20,20);}
     }
@@ -266,10 +266,13 @@ public class EventHandler {
     }
 
     public void checkEventMap3() {
-       
+        if (hit(50-27, 31, "any", false, false)) {
+            switchMap(0, "/res/map/map0.txt",50,70,13,20);
+        }
     }
 
     public void checkEventMap4() {
+        if (hit(3, 50, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,70,39,36);}
         
     }
 
