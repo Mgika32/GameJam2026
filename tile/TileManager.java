@@ -52,6 +52,8 @@ import main.UtilityTool;
         setup(27, "StairsFrontLeft", false);
         setup(28, "StairsFrontRight", false);
         setup(30, "wall", true);
+
+        // Grey wall
         setup(31, "gvertical_wall", true);
         setup(32, "gWallCrossRight", true);
         setup(33, "ghorizontal_wall", true);
@@ -62,6 +64,20 @@ import main.UtilityTool;
         setup(38, "gtop_right_corner", true);
         setup(39, "gWallCrossTop", true);
         setup(40, "gWallCrossBotom", true);
+
+        // White wall
+        setup(61, "whvertical_wall", true);
+        setup(62, "whWallCrossRight", true);
+        setup(63, "whhorizontal_wall", true);
+        setup(64, "whWallCrossLeft", true);
+        setup(65, "whbottom_left_corner", true);
+        setup(66, "whbottom_right_corner", true);
+        setup(67, "whtop_left_corner", true);
+        setup(68, "whtop_right_corner", true);
+        setup(69, "whWallCrossTop", true);
+        setup(70, "whWallCrossBotom", true);
+
+
         setup(50, "Collision", true);
         
 
