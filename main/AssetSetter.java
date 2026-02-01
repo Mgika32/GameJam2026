@@ -11,16 +11,20 @@ public class AssetSetter {
         this.gp = gp;
     }
 
+    // =========================================================================
+    //                                  MAP 0
+    // =========================================================================
     public void setMaskMap0() {
         gp.Mask[0] = new Mask.MultiMask();
         gp.Mask[0].worldX = 0 * gp.tileSize;
         gp.Mask[0].worldY = 50 * gp.tileSize;
     }
+    
     public void setDisplayObjectMap0() {
-        
+        // Rien pour l'instant sur la map 0
     }
 
-    public void setMonster() {
+    public void setMonster() { // Slimes de la Map 0
         gp.monster[0] = new MON_GreenSlime(gp);
         gp.monster[0].worldX = gp.tileSize * 21;
         gp.monster[0].worldY = gp.tileSize * 2;
@@ -46,58 +50,9 @@ public class AssetSetter {
         gp.monster[5].worldY = gp.tileSize * 3;
     }
 
-    public void setDisplayObjectMap4() {
-        // --- PORTE 1 (Bloque un passage) ---
-        // ID: 100
-        gp.display[0] = new Door(100); 
-        gp.display[0].worldX = 25 * gp.tileSize; // Ajuste selon ton labyrinthe
-        gp.display[0].worldY = 30 * gp.tileSize;
-
-        // --- BOUTON 1 (Ouvre la porte 100) ---
-        // ID: 0, Cible: 100, Interrupteur: false
-        gp.display[1] = new Button(0, 100, false); 
-        gp.display[1].worldX = 9 * gp.tileSize; // Caché à gauche
-        gp.display[1].worldY = 35 * gp.tileSize;
-
-        // --- PORTE 2 (Passage final) ---
-        // ID: 101
-        gp.display[2] = new Door(101);
-        gp.display[2].worldX = 40 * gp.tileSize;
-        gp.display[2].worldY = 15 * gp.tileSize;
-
-        // --- BOUTON 2 (Ouvre la porte 101) ---
-        // ID: 1, Cible: 101, Interrupteur: true (ON/OFF)
-        gp.display[3] = new Button(1, 101, true); 
-        gp.display[3].worldX = 45 * gp.tileSize; // Caché à droite
-        gp.display[3].worldY = 40 * gp.tileSize;
-    }
-
-    public void setMonsterMap4() {
-        gp.monster[0] = new MON_GreenSlime(gp);
-        gp.monster[0].worldX = gp.tileSize * 40;
-        gp.monster[0].worldY = gp.tileSize * 10;
-
-        gp.monster[1] = new MON_GreenSlime(gp);
-        gp.monster[1].worldX = gp.tileSize * 42;
-        gp.monster[1].worldY = gp.tileSize * 10;
-
-        gp.monster[2] = new MON_GreenSlime(gp);
-        gp.monster[2].worldX = gp.tileSize * 44;
-        gp.monster[2].worldY = gp.tileSize * 10;
-
-        gp.monster[3] = new MON_GreenSlime(gp);
-        gp.monster[3].worldX = gp.tileSize * 40;
-        gp.monster[3].worldY = gp.tileSize * 10;
-
-        gp.monster[4] = new MON_GreenSlime(gp);
-        gp.monster[4].worldX = gp.tileSize * 42;
-        gp.monster[4].worldY = gp.tileSize * 10;
-
-        gp.monster[5] = new MON_GreenSlime(gp);
-        gp.monster[5].worldX = gp.tileSize * 44;
-        gp.monster[5].worldY = gp.tileSize * 10;
-    }
-
+    // =========================================================================
+    //                                  MAP 1
+    // =========================================================================
     public void setMaskMap1() {
         gp.Mask[0] = new Mask.MultiMask();
         gp.Mask[0].worldX = 41 * gp.tileSize;
@@ -105,295 +60,162 @@ public class AssetSetter {
 
         gp.Mask[1] = null;
     }
+
     public void setDisplayObjectMap1() {
-        
-        gp.display[0] = new DisplayBridge();
-        gp.display[0].worldX = 21* gp.tileSize;
-        gp.display[0].worldY = 19 * gp.tileSize;
+        // --- PONTS ---
+        gp.display[0] = new DisplayBridge(); gp.display[0].worldX = 21* gp.tileSize; gp.display[0].worldY = 19 * gp.tileSize;
+        gp.display[1] = new DisplayBridge(); gp.display[1].worldX = 22* gp.tileSize; gp.display[1].worldY = 19 * gp.tileSize;
+        gp.display[2] = new DisplayBridge(); gp.display[2].worldX = 23* gp.tileSize; gp.display[2].worldY = 19 * gp.tileSize;
+        gp.display[3] = new DisplayBridge(); gp.display[3].worldX = 24* gp.tileSize; gp.display[3].worldY = 19 * gp.tileSize;
+        gp.display[4] = new DisplayBridge(); gp.display[4].worldX = 25* gp.tileSize; gp.display[4].worldY = 19 * gp.tileSize;
+        gp.display[5] = new DisplayBridge(); gp.display[5].worldX = 26* gp.tileSize; gp.display[5].worldY = 19 * gp.tileSize;
+        gp.display[6] = new DisplayBridge(); gp.display[6].worldX = 27* gp.tileSize; gp.display[6].worldY = 19 * gp.tileSize;
+        gp.display[7] = new DisplayBridge(); gp.display[7].worldX = 28* gp.tileSize; gp.display[7].worldY = 19 * gp.tileSize;
+        gp.display[8] = new DisplayBridge(); gp.display[8].worldX = 29* gp.tileSize; gp.display[8].worldY = 19 * gp.tileSize;
 
-        gp.display[1] = new DisplayBridge();
-        gp.display[1].worldX = 22* gp.tileSize;
-        gp.display[1].worldY = 19 * gp.tileSize;
+        gp.display[9] = new DisplayBridge(); gp.display[9].worldX = 21* gp.tileSize; gp.display[9].worldY = 20 * gp.tileSize;
+        gp.display[10] = new DisplayBridge(); gp.display[10].worldX = 22* gp.tileSize; gp.display[10].worldY = 20 * gp.tileSize;
+        gp.display[11] = new DisplayBridge(); gp.display[11].worldX = 23* gp.tileSize; gp.display[11].worldY = 20 * gp.tileSize;
+        gp.display[12] = new DisplayBridge(); gp.display[12].worldX = 24* gp.tileSize; gp.display[12].worldY = 20 * gp.tileSize;
+        gp.display[13] = new DisplayBridge(); gp.display[13].worldX = 25* gp.tileSize; gp.display[13].worldY = 20 * gp.tileSize;
+        gp.display[14] = new DisplayBridge(); gp.display[14].worldX = 26* gp.tileSize; gp.display[14].worldY = 20 * gp.tileSize;
+        gp.display[15] = new DisplayBridge(); gp.display[15].worldX = 27* gp.tileSize; gp.display[15].worldY = 20 * gp.tileSize;
+        gp.display[16] = new DisplayBridge(); gp.display[16].worldX = 28* gp.tileSize; gp.display[16].worldY = 20 * gp.tileSize;
+        gp.display[17] = new DisplayBridge(); gp.display[17].worldX = 29* gp.tileSize; gp.display[17].worldY = 20 * gp.tileSize;
 
-        gp.display[2] = new DisplayBridge();
-        gp.display[2].worldX = 23* gp.tileSize;
-        gp.display[2].worldY = 19 * gp.tileSize;
+        // --- COLLISIONS INVISIBLES (SUR LE PONT) ---
+        gp.display[18] = new Collision(); gp.display[18].worldX = 21* gp.tileSize; gp.display[18].worldY = 18 * gp.tileSize;
+        gp.display[19] = new Collision(); gp.display[19].worldX = 22* gp.tileSize; gp.display[19].worldY = 18 * gp.tileSize;
+        gp.display[20] = new Collision(); gp.display[20].worldX = 23* gp.tileSize; gp.display[20].worldY = 18 * gp.tileSize;
+        gp.display[21] = new Collision(); gp.display[21].worldX = 24* gp.tileSize; gp.display[21].worldY = 18 * gp.tileSize;
+        gp.display[22] = new Collision(); gp.display[22].worldX = 25* gp.tileSize; gp.display[22].worldY = 18 * gp.tileSize;
+        gp.display[23] = new Collision(); gp.display[23].worldX = 26* gp.tileSize; gp.display[23].worldY = 18 * gp.tileSize;
+        gp.display[24] = new Collision(); gp.display[24].worldX = 27* gp.tileSize; gp.display[24].worldY = 18 * gp.tileSize;
+        gp.display[25] = new Collision(); gp.display[25].worldX = 28* gp.tileSize; gp.display[25].worldY = 18 * gp.tileSize;
+        gp.display[26] = new Collision(); gp.display[26].worldX = 29* gp.tileSize; gp.display[26].worldY = 18 * gp.tileSize;
 
-        gp.display[3] = new DisplayBridge();
-        gp.display[3].worldX = 24* gp.tileSize;
-        gp.display[3].worldY = 19 * gp.tileSize;
+        gp.display[27] = new Collision(); gp.display[27].worldX = 21* gp.tileSize; gp.display[27].worldY = 21 * gp.tileSize;
+        gp.display[28] = new Collision(); gp.display[28].worldX = 22* gp.tileSize; gp.display[28].worldY = 21 * gp.tileSize;
+        gp.display[29] = new Collision(); gp.display[29].worldX = 23* gp.tileSize; gp.display[29].worldY = 21 * gp.tileSize;
+        gp.display[30] = new Collision(); gp.display[30].worldX = 24 * gp.tileSize; gp.display[30].worldY = 21 * gp.tileSize;
+        gp.display[31] = new Collision(); gp.display[31].worldX = 25* gp.tileSize; gp.display[31].worldY = 21 * gp.tileSize;
+        gp.display[32] = new Collision(); gp.display[32].worldX = 26* gp.tileSize; gp.display[32].worldY = 21 * gp.tileSize;
+        gp.display[33] = new Collision(); gp.display[33].worldX = 27* gp.tileSize; gp.display[33].worldY = 21 * gp.tileSize;
+        gp.display[34] = new Collision(); gp.display[34].worldX = 28* gp.tileSize; gp.display[34].worldY = 21 * gp.tileSize;
+        gp.display[35] = new Collision(); gp.display[35].worldX = 29* gp.tileSize; gp.display[35].worldY = 21 * gp.tileSize;
 
-        gp.display[4] = new DisplayBridge();
-        gp.display[4].worldX = 25* gp.tileSize;
-        gp.display[4].worldY = 19 * gp.tileSize;
+        // --- PONTS DECO (Dessus ?) ---
+        gp.display[36] = new DisplayBridge(); gp.display[36].worldX = 21* gp.tileSize; gp.display[36].worldY = 18 * gp.tileSize;
+        gp.display[37] = new DisplayBridge(); gp.display[37].worldX = 22* gp.tileSize; gp.display[37].worldY = 18 * gp.tileSize;
+        gp.display[38] = new DisplayBridge(); gp.display[38].worldX = 23* gp.tileSize; gp.display[38].worldY = 18 * gp.tileSize;
+        gp.display[39] = new DisplayBridge(); gp.display[39].worldX = 24* gp.tileSize; gp.display[39].worldY = 18 * gp.tileSize;
+        gp.display[40] = new DisplayBridge(); gp.display[40].worldX = 25* gp.tileSize; gp.display[40].worldY = 18 * gp.tileSize;
+        gp.display[41] = new DisplayBridge(); gp.display[41].worldX = 26* gp.tileSize; gp.display[41].worldY = 18 * gp.tileSize;
+        gp.display[42] = new DisplayBridge(); gp.display[42].worldX = 27* gp.tileSize; gp.display[42].worldY = 18 * gp.tileSize;
+        gp.display[43] = new DisplayBridge(); gp.display[43].worldX = 28* gp.tileSize; gp.display[43].worldY = 18 * gp.tileSize;
+        gp.display[44] = new DisplayBridge(); gp.display[44].worldX = 29* gp.tileSize; gp.display[44].worldY = 18 * gp.tileSize;
 
-        gp.display[5] = new DisplayBridge();
-        gp.display[5].worldX = 26* gp.tileSize;
-        gp.display[5].worldY = 19 * gp.tileSize;
+        // --- COLLISIONS SOUS LE PONT ---
+        gp.display[45] = new CollisionUnder(); gp.display[45].worldX = 30 * gp.tileSize; gp.display[45].worldY = 19 * gp.tileSize;
+        gp.display[46] = new CollisionUnder(); gp.display[46].worldX = 30 * gp.tileSize; gp.display[46].worldY = 20 * gp.tileSize;
+        gp.display[47] = new CollisionUnder(); gp.display[47].worldX = 30 * gp.tileSize; gp.display[47].worldY = 21 * gp.tileSize;
+        gp.display[48] = new CollisionUnder(); gp.display[48].worldX = 20 * gp.tileSize; gp.display[48].worldY = 19 * gp.tileSize;
+        gp.display[49] = new CollisionUnder(); gp.display[49].worldX = 20 * gp.tileSize; gp.display[49].worldY = 20 * gp.tileSize;
+        gp.display[50] = new CollisionUnder(); gp.display[50].worldX = 20 * gp.tileSize; gp.display[50].worldY = 21 * gp.tileSize;
 
-        gp.display[6] = new DisplayBridge();
-        gp.display[6].worldX = 27* gp.tileSize;
-        gp.display[6].worldY = 19 * gp.tileSize;
-
-        gp.display[7] = new DisplayBridge();
-        gp.display[7].worldX = 28* gp.tileSize;
-        gp.display[7].worldY = 19 * gp.tileSize;
-
-        gp.display[8] = new DisplayBridge();
-        gp.display[8].worldX = 29* gp.tileSize;
-        gp.display[8].worldY = 19 * gp.tileSize;
-
-        gp.display[9] = new DisplayBridge();
-        gp.display[9].worldX = 21* gp.tileSize;
-        gp.display[9].worldY = 20 * gp.tileSize;
-
-        gp.display[10] = new DisplayBridge();
-        gp.display[10].worldX = 22* gp.tileSize;
-        gp.display[10].worldY = 20 * gp.tileSize;
-
-        gp.display[11] = new DisplayBridge();
-        gp.display[11].worldX = 23* gp.tileSize;
-        gp.display[11].worldY = 20 * gp.tileSize;
-
-        gp.display[12] = new DisplayBridge();
-        gp.display[12].worldX = 24* gp.tileSize;
-        gp.display[12].worldY = 20 * gp.tileSize;
-
-        gp.display[13] = new DisplayBridge();
-        gp.display[13].worldX = 25* gp.tileSize;
-        gp.display[13].worldY = 20 * gp.tileSize;
-
-        gp.display[14] = new DisplayBridge();
-        gp.display[14].worldX = 26* gp.tileSize;
-        gp.display[14].worldY = 20 * gp.tileSize;
-
-        gp.display[15] = new DisplayBridge();
-        gp.display[15].worldX = 27* gp.tileSize;
-        gp.display[15].worldY = 20 * gp.tileSize;
-
-        gp.display[16] = new DisplayBridge();
-        gp.display[16].worldX = 28* gp.tileSize;
-        gp.display[16].worldY = 20 * gp.tileSize;
-
-        gp.display[17] = new DisplayBridge();
-        gp.display[17].worldX = 29* gp.tileSize;
-        gp.display[17].worldY = 20 * gp.tileSize;
-
-        gp.display[18] = new Collision();
-        gp.display[18].worldX = 21* gp.tileSize;
-        gp.display[18].worldY = 18 * gp.tileSize;
-
-        gp.display[19] = new Collision();
-        gp.display[19].worldX = 22* gp.tileSize;
-        gp.display[19].worldY = 18 * gp.tileSize;
-
-        gp.display[20] = new Collision();
-        gp.display[20].worldX = 23* gp.tileSize;
-        gp.display[20].worldY = 18 * gp.tileSize;
-
-        gp.display[21] = new Collision();
-        gp.display[21].worldX = 24* gp.tileSize;
-        gp.display[21].worldY = 18 * gp.tileSize;
-
-        gp.display[22] = new Collision();
-        gp.display[22].worldX = 25* gp.tileSize;
-        gp.display[22].worldY = 18 * gp.tileSize;
-
-        gp.display[23] = new Collision();
-        gp.display[23].worldX = 26* gp.tileSize;
-        gp.display[23].worldY = 18 * gp.tileSize;
-
-        gp.display[24] = new Collision();
-        gp.display[24].worldX = 27* gp.tileSize;
-        gp.display[24].worldY = 18 * gp.tileSize;
-
-        gp.display[25] = new Collision();
-        gp.display[25].worldX = 28* gp.tileSize;
-        gp.display[25].worldY = 18 * gp.tileSize;
-
-        gp.display[26] = new Collision();
-        gp.display[26].worldX = 29* gp.tileSize;
-        gp.display[26].worldY = 18 * gp.tileSize;
-
-        gp.display[27] = new Collision();
-        gp.display[27].worldX = 21* gp.tileSize;
-        gp.display[27].worldY = 21 * gp.tileSize;
-
-        gp.display[28] = new Collision();
-        gp.display[28].worldX = 22* gp.tileSize;
-        gp.display[28].worldY = 21 * gp.tileSize;
-
-        gp.display[29] = new Collision();
-        gp.display[29].worldX = 23* gp.tileSize;
-        gp.display[29].worldY = 21 * gp.tileSize;
-
-        gp.display[30] = new Collision();
-        gp.display[30].worldX = 24 * gp.tileSize;
-        gp.display[30].worldY = 21 * gp.tileSize;
-
-        gp.display[31] = new Collision();
-        gp.display[31].worldX = 25* gp.tileSize;
-        gp.display[31].worldY = 21 * gp.tileSize;
-
-        gp.display[32] = new Collision();
-        gp.display[32].worldX = 26* gp.tileSize;
-        gp.display[32].worldY = 21 * gp.tileSize;
-
-        gp.display[33] = new Collision();
-        gp.display[33].worldX = 27* gp.tileSize;
-        gp.display[33].worldY = 21 * gp.tileSize;
-
-        gp.display[34] = new Collision();
-        gp.display[34].worldX = 28* gp.tileSize;
-        gp.display[34].worldY = 21 * gp.tileSize;
-
-        gp.display[35] = new Collision();
-        gp.display[35].worldX = 29* gp.tileSize;
-        gp.display[35].worldY = 21 * gp.tileSize;
-
-        gp.display[36] = new DisplayBridge();
-        gp.display[36].worldX = 21* gp.tileSize;
-        gp.display[36].worldY = 18 * gp.tileSize;
-
-        gp.display[37] = new DisplayBridge();
-        gp.display[37].worldX = 22* gp.tileSize;
-        gp.display[37].worldY = 18 * gp.tileSize;
-
-        gp.display[38] = new DisplayBridge();
-        gp.display[38].worldX = 23* gp.tileSize;
-        gp.display[38].worldY = 18 * gp.tileSize;
-
-        gp.display[39] = new DisplayBridge();
-        gp.display[39].worldX = 24* gp.tileSize;
-        gp.display[39].worldY = 18 * gp.tileSize;
-
-        gp.display[40] = new DisplayBridge();
-        gp.display[40].worldX = 25* gp.tileSize;
-        gp.display[40].worldY = 18 * gp.tileSize;
-
-        gp.display[41] = new DisplayBridge();
-        gp.display[41].worldX = 26* gp.tileSize;
-        gp.display[41].worldY = 18 * gp.tileSize;
-
-        gp.display[42] = new DisplayBridge();
-        gp.display[42].worldX = 27* gp.tileSize;
-        gp.display[42].worldY = 18 * gp.tileSize;
-
-        gp.display[43] = new DisplayBridge();
-        gp.display[43].worldX = 28* gp.tileSize;
-        gp.display[43].worldY = 18 * gp.tileSize;
-
-        gp.display[44] = new DisplayBridge();
-        gp.display[44].worldX = 29* gp.tileSize;
-        gp.display[44].worldY = 18 * gp.tileSize;
-
-        gp.display[45] = new CollisionUnder();
-        gp.display[45].worldX = 30 * gp.tileSize;
-        gp.display[45].worldY = 19 * gp.tileSize;
-
-        gp.display[46] = new CollisionUnder();
-        gp.display[46].worldX = 30 * gp.tileSize;
-        gp.display[46].worldY = 20 * gp.tileSize;
-
-        gp.display[47] = new CollisionUnder();
-        gp.display[47].worldX = 30* gp.tileSize;
-        gp.display[47].worldY = 21 * gp.tileSize;
-
-        gp.display[48] = new CollisionUnder();
-        gp.display[48].worldX = 21* gp.tileSize;
-        gp.display[48].worldY = 19 * gp.tileSize;
-
-        gp.display[49] = new CollisionUnder();
-        gp.display[49].worldX = 21* gp.tileSize;
-        gp.display[49].worldY = 20 * gp.tileSize;
-
-        gp.display[50] = new CollisionUnder();
-        gp.display[50].worldX = 21* gp.tileSize;
-        gp.display[50].worldY = 21 * gp.tileSize;
-
-        gp.display[51] = new Button(0);
-        gp.display[51].worldX = 1 * gp.tileSize;
-        gp.display[51].worldY = 5 * gp.tileSize;
+        // --- BOUTONS ET PORTES DU PUZZLE (MAP 1) ---
+        // Utilisation du constructeur simple Button(id) -> Mode Puzzle
+        gp.display[51] = new Button(0); 
+        gp.display[51].worldX = 1 * gp.tileSize; gp.display[51].worldY = 5 * gp.tileSize;
         ((Button)gp.display[51]).state = 1; // Le premier est BLEU
 
-        gp.display[52] = new Button(1);
-        gp.display[52].worldX = 1 * gp.tileSize;
-        gp.display[52].worldY = 20 * gp.tileSize;
+        gp.display[52] = new Button(1); 
+        gp.display[52].worldX = 1 * gp.tileSize; gp.display[52].worldY = 20 * gp.tileSize;
 
-        gp.display[53] = new Button(2);
-        gp.display[53].worldX = 40 * gp.tileSize;
-        gp.display[53].worldY = 3 * gp.tileSize;
+        gp.display[53] = new Button(2); 
+        gp.display[53].worldX = 40 * gp.tileSize; gp.display[53].worldY = 3 * gp.tileSize;
 
-        gp.display[54] = new Door();
-        gp.display[54].name = "Door";
-        gp.display[54].collision = true;
-        gp.display[54].worldX = 33 * gp.tileSize;
-        gp.display[54].worldY = 31 * gp.tileSize;
+        // Portes du puzzle (pas d'ID spécifique, elles s'ouvrent à la fin de la séquence)
+        gp.display[54] = new Door(); 
+        gp.display[54].worldX = 33 * gp.tileSize; gp.display[54].worldY = 31 * gp.tileSize;
 
-        gp.display[55] = new Door();
-        gp.display[55].name = "Door";
-        gp.display[55].collision = true;
-        gp.display[55].worldX = 33 * gp.tileSize;
-        gp.display[55].worldY = 32 * gp.tileSize;
+        gp.display[55] = new Door(); 
+        gp.display[55].worldX = 33 * gp.tileSize; gp.display[55].worldY = 32 * gp.tileSize;
 
-        gp.display[56] = new Door();
-        gp.display[56].name = "Door";
-        gp.display[56].collision = true;
-        gp.display[56].worldX = 33 * gp.tileSize;
-        gp.display[56].worldY = 33 * gp.tileSize;
+        gp.display[56] = new Door(); 
+        gp.display[56].worldX = 33 * gp.tileSize; gp.display[56].worldY = 33 * gp.tileSize;
 
-        gp.display[57] = new Button(3);
-        gp.display[57].worldX = 48 * gp.tileSize;
-        gp.display[57].worldY = 22 * gp.tileSize;
+        gp.display[57] = new Button(3); 
+        gp.display[57].worldX = 48 * gp.tileSize; gp.display[57].worldY = 22 * gp.tileSize;
 
-        gp.display[58] = new Button(4);
-        gp.display[58].worldX = 3 * gp.tileSize;
-        gp.display[58].worldY = 48 * gp.tileSize;
+        gp.display[58] = new Button(4); 
+        gp.display[58].worldX = 3 * gp.tileSize; gp.display[58].worldY = 48 * gp.tileSize;
 
-        gp.display[59] = new Button(5);
-        gp.display[59].worldX = 11 * gp.tileSize;
-        gp.display[59].worldY = 48 * gp.tileSize;
-    
-    }
-    
-
-    public void setMob() {
-
+        gp.display[59] = new Button(5); 
+        gp.display[59].worldX = 11 * gp.tileSize; gp.display[59].worldY = 48 * gp.tileSize;
     }
 
-    public void setDisplayObjectMap2() {
+    // =========================================================================
+    //                                  MAP 4 (LABYRINTHE)
+    // =========================================================================
+    public void setDisplayObjectMap4() {
         
-    }
+        // --- ZONE 1 : Porte et Bouton Simple ---
+        // Porte qui bloque le passage (ID 50)
+        gp.display[0] = new Door(50); 
+        gp.display[0].worldX = 25 * gp.tileSize;
+        gp.display[0].worldY = 10 * gp.tileSize;
 
-    public void setMaskMap2() {
-    }
-
-    public void setDisplayObjectMap2_1() {
+        // Bouton qui ouvre la porte 50 (ID 0, Cible 50)
+        gp.display[1] = new Button(0, 50); 
+        gp.display[1].worldX = 20 * gp.tileSize;
+        gp.display[1].worldY = 15 * gp.tileSize;
         
+        // --- ZONE 2 : Sortie et Interrupteur Caché ---
+        // Porte de sortie (ID 100)
+        gp.display[2] = new Door(100);
+        gp.display[2].worldX = 40 * gp.tileSize;
+        gp.display[2].worldY = 15 * gp.tileSize;
+
+        // Interrupteur ON/OFF pour la porte 100 (ID 1, Cible 100, Togglable=true)
+        gp.display[3] = new Button(1, 100, true); 
+        gp.display[3].worldX = 45 * gp.tileSize;
+        gp.display[3].worldY = 40 * gp.tileSize;
     }
 
-    public void setMaskMap2_1() {
-    }
+    public void setMonsterMap4() {
+        // Spawn des FANTÔMES dans la partie HAUTE de la map
+        gp.monster[0] = new MON_GreenSlime(gp);
+        gp.monster[0].worldX = gp.tileSize * 10;
+        gp.monster[0].worldY = gp.tileSize * 8;
 
-    public void setDisplayObjectMap3() {
-        
-    }
+        gp.monster[1] = new MON_GreenSlime(gp);
+        gp.monster[1].worldX = gp.tileSize * 35;
+        gp.monster[1].worldY = gp.tileSize * 10;
 
-    public void setMaskMap3() {
-       
-    }
+        gp.monster[2] = new MON_GreenSlime(gp);
+        gp.monster[2].worldX = gp.tileSize * 20;
+        gp.monster[2].worldY = gp.tileSize * 6;
 
-    
-
-    public void setDisplayObjectMap6() {
-        
-    }
-
-    public void setMaskMap6() {
+        gp.monster[3] = new MON_GreenSlime(gp);
+        gp.monster[3].worldX = gp.tileSize * 40;
+        gp.monster[3].worldY = gp.tileSize * 12;
     }
 
     public void setMaskMap4() {
-
+        // Ajoute ici des masques pour la map 4 si besoin
     }
+
+    // =========================================================================
+    //                          AUTRES MAPS (VIDES POUR EVITER CRASH)
+    // =========================================================================
+    public void setDisplayObjectMap2() {}
+    public void setMaskMap2() {}
+    public void setDisplayObjectMap2_1() {}
+    public void setMaskMap2_1() {}
+    public void setDisplayObjectMap3() {}
+    public void setMaskMap3() {}
+    public void setDisplayObjectMap6() {}
+    public void setMaskMap6() {}
 
 }

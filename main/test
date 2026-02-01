@@ -1,0 +1,223 @@
+package main;
+
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import DisplayObject.*; // Indispensable pour reconnaître Button et Door
+
+public class EventHandler {
+    
+    Rectangle eventRect;
+    Rectangle eventRectLarge;
+    int eventRectDefaultX, eventRectDefaultY;
+
+    GamePanel gp;
+    Graphics2D g2;
+
+    // Variables pour le Puzzle de la Map 1
+    int currentButtonNeeded = 0; 
+    int totalButtons = 6;        
+
+    public EventHandler(GamePanel gp){
+        this.gp = gp;
+        
+        eventRect = new Rectangle();
+        eventRect.x = 23;
+        eventRect.y = 23;
+        eventRect.width = gp.tileSize + 5;
+        eventRect.height = gp.tileSize + 5;
+        
+        eventRectLarge = new Rectangle();
+        eventRectLarge.x = 23;
+        eventRectLarge.y = 23;
+        eventRectLarge.width = gp.tileSize * 6;
+        eventRectLarge.height = gp.tileSize * 5;
+        
+        eventRectDefaultX = eventRect.x;
+        eventRectDefaultY = eventRect.y;
+    }
+
+    // =========================================================================
+    //                            INTERACTIONS (BOUTONS / PORTES)
+    // =========================================================================
+
+    public void interactButton(int i) {
+        // Sécurité : si l'index est invalide ou l'objet vide, on ne fait rien
+        if (i == 999 || gp.display[i] == null) return;
+
+        if (gp.display[i] instanceof Button) {
+            Button btn = (Button) gp.display[i];
+
+            // --- CAS 1 : INTERRUPTEUR ON/OFF (Map 4) ---
+            if (btn.togglable) {
+                if (btn.state == 0) {
+                    btn.state = 1; // Allumé
+                    if (btn.doorToOpen != -1) openDoorById(btn.doorToOpen);
+                } else {
+                    btn.state = 0; // Éteint
+                }
+                return; 
+            }
+
+            // --- CAS 2 : BOUTON SIMPLE AVEC CIBLE (Map 4) ---
+            if (btn.doorToOpen != -1 && btn.state == 0) {
+                btn.state = 2; // Rouge définitif
+                openDoorById(btn.doorToOpen);
+            }
+
+            // --- CAS 3 : PUZZLE SÉQUENTIEL (Map 1) ---
+            else if (btn.doorToOpen == -1 && btn.buttonID == currentButtonNeeded && btn.state == 1) {
+                btn.state = 2; 
+                currentButtonNeeded++; 
+
+                if (currentButtonNeeded == totalButtons) {
+                    openPuzzleDoor(); // Ouvre la porte finale du puzzle
+                } else {
+                    activateNextButton(); // Active le bouton suivant de la séquence
+                }
+            }
+        }
+    }
+
+    public void openDoorById(int idToFind) {
+        for (int i = 0; i < gp.display.length; i++) {
+            if (gp.display[i] instanceof Door) {
+                Door door = (Door) gp.display[i];
+                if (door.doorID == idToFind) {
+                    gp.display[i] = null; // Supprime la porte
+                }
+            }
+        }
+    }
+
+    public void openPuzzleDoor() {
+        for (int i = 0; i < gp.display.length; i++) {
+            // Ouvre les portes qui n'ont pas d'ID spécifique (-1)
+            if (gp.display[i] instanceof Door && ((Door)gp.display[i]).doorID == -1) {
+                gp.display[i] = null; 
+            }
+        }
+    }
+
+    public void activateNextButton() {
+        for (int i = 0; i < gp.display.length; i++) {
+            if (gp.display[i] instanceof Button) {
+                Button btn = (Button) gp.display[i];
+                if (btn.buttonID == currentButtonNeeded && btn.doorToOpen == -1) {
+                    btn.state = 1; // Bleu
+                }
+            }
+        }
+    }
+
+    // =========================================================================
+    //                            DÉTECTION D'EVENTS (MARCHE)
+    // =========================================================================
+
+    public boolean hit(int eventCol, int eventRow, String reqDirection, boolean isLarge, boolean isHeight) {
+        boolean hit = false;
+
+        gp.player1.solidArea.x = gp.player1.worldX + gp.player1.solidArea.x;
+        gp.player1.solidArea.y = gp.player1.worldY + gp.player1.solidArea.y;
+
+        Rectangle targetRect = isLarge ? eventRectLarge : eventRect;
+        targetRect.x = eventCol * gp.tileSize + eventRectDefaultX;
+        targetRect.y = eventRow * gp.tileSize + eventRectDefaultY;
+
+        if (gp.player1.solidArea.intersects(targetRect)) {
+            if (reqDirection != null && (gp.player1.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any"))) {
+                hit = true;
+            }
+        }
+
+        gp.player1.solidArea.x = gp.player1.solidAreaDefaultX;
+        gp.player1.solidArea.y = gp.player1.solidAreaDefaultY;
+        
+        return hit;
+    }
+
+    // --- EVENTS MAP 0 ---
+    public void checkEventMap0() {
+        if (hit(24, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
+        if (hit(25, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
+        if (hit(26, 6, "any", false, false)) {switchMap(1, "/res/map/map1.txt",50,50,26,47);}
+        
+        // Ajoute ici l'entrée vers le labyrinthe (Map 4) si tu as un bâtiment
+        // if (hit(X, Y, "any", false, false)) {switchMap(4, "/res/map/map4.txt",50,50,25,48);}
+    }
+
+    // --- EVENTS MAP 1 ---
+    public void checkEventMap1() {
+        if (hit(26, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        if (hit(27, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        if (hit(25, 49, "any", false, false)) {switchMap(0, "/res/map/map0.txt",50,50,25,8);}
+        
+        if (hit(32, 23, "up", false, false)) {gp.under = false;}
+        if (hit(32, 23, "down", false, false)) {gp.under = true;}
+        if (hit(31, 23, "up", false, false)) {gp.under = false;}
+        if (hit(31, 23, "down", false, false)) {gp.under = true;}
+    }
+
+    // --- C'EST ICI QUE TU AVAIS DES ERREURS : IL FAUT DÉFINIR CES MÉTHODES VIDES ---
+    
+    public void checkEventMap2() {}
+    
+    public void checkEventMap2_1() {}
+    
+    public void checkEventMap3() {}
+    
+    public void checkEventMap4() {
+        // Tu peux mettre ici la sortie du labyrinthe
+        // if (hit(40, 5, "any", false, false)) {switchMap(0, "/res/map/map0.txt", 50, 50, 25, 25);}
+    }
+    
+    public void checkEventMap5() {}
+    
+    public void checkEventMap6() {}
+
+    // =========================================================================
+    //                            CHANGEMENT DE MAP
+    // =========================================================================
+
+    public void switchMap(int mapIndex, String path, int cols, int rows, int spawnX, int spawnY) {
+        gp.currentMap = mapIndex;
+        gp.resetEntities(); 
+        gp.TileM.loadMap(path, cols, rows);
+        gp.player1.worldX = spawnX * gp.tileSize;
+        gp.player1.worldY = spawnY * gp.tileSize;
+
+        if (mapIndex == 0) {
+            gp.aSetter.setDisplayObjectMap0();
+            gp.aSetter.setMaskMap0();
+        }
+        
+        else if (mapIndex == 1) {
+            gp.aSetter.setDisplayObjectMap1();
+            gp.aSetter.setMaskMap1();
+            gp.player1.speed = 5;
+        }
+        else if (mapIndex == 2) {
+            
+            gp.aSetter.setDisplayObjectMap2();
+            gp.aSetter.setMaskMap2();
+        }
+        else if (mapIndex == 2.1) {
+            gp.aSetter.setDisplayObjectMap2_1();
+            gp.aSetter.setMaskMap2_1();
+        }
+        else if (mapIndex == 3) {
+            gp.aSetter.setDisplayObjectMap3();
+            gp.aSetter.setMaskMap3();
+        }
+        else if (mapIndex == 4) {
+            gp.aSetter.setDisplayObjectMap4();
+            gp.aSetter.setMaskMap4();
+        }
+        else if (mapIndex == 6) {
+            gp.aSetter.setDisplayObjectMap6();
+            gp.aSetter.setMaskMap6();
+        }
+
+    public void hack() {}
+    public void takeDamage(int damage) { gp.player1.life -= damage; }
+    public void heal(int heal) { gp.player1.life += heal; }
+}
