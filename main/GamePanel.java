@@ -224,8 +224,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         for(int i = 0; i < monster.length; i++) {
             if(monster[i] != null) {
-                monster[i].draw(g2); // Si tu as mis la méthode draw dans MON_GreenSlime
-                // Sinon utilise : monster[i].draw(g2, this); si c'est dans Entity
+                monster[i].draw(g2);
             }
     }
         

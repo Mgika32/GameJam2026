@@ -33,23 +33,58 @@ public class MON_GreenSlime extends entity {
         solidAreaDefaultY = solidArea.y;
     }
 
+    @Override
     public void setAction() {
-        // IA : Changement de direction aléatoire toutes les 2 secondes (120 frames)
+        
         actionLockCounter++;
 
-        if(actionLockCounter == 120) {
-            Random random = new Random();
-            int i = random.nextInt(100) + 1; // Nombre entre 1 et 100
+        // On met à jour la direction toutes les 60 frames (1 seconde)
+        // Tu peux baisser ce chiffre (ex: 30 ou 40) pour le rendre plus réactif/agressif
+        if(actionLockCounter == 60) {
 
-            if(i <= 25) { direction = "up"; }
-            if(i > 25 && i <= 50) { direction = "down"; }
-            if(i > 50 && i <= 75) { direction = "left"; image = imageLeft; }
-            if(i > 75 && i <= 100) { direction = "right"; image = imageRight; }
+            // 1. Calculer la distance (en nombre de tuiles pour simplifier)
+            int xDistance = (worldX - gp.player1.worldX); // Positif si monstre est à droite
+            int yDistance = (worldY - gp.player1.worldY); // Positif si monstre est en bas
+            
+            // On prend la valeur absolue pour savoir "à quel point" il est loin
+            int absX = Math.abs(xDistance); // ex: distance de 300 pixels devient 300
+            int absY = Math.abs(yDistance);
+
+            // 2. DISTANCE D'AGGRO (ex: 12 tuiles * taille d'une tuile)
+            // Si le joueur est à moins de 12 cases, on le chasse !
+            if (absX < 12 * gp.tileSize && absY < 12 * gp.tileSize) {
+                
+                // On choisit l'axe où la distance est la plus grande pour se rapprocher efficacement
+                if (absX > absY) {
+                    // Le joueur est plus loin horizontalement, on bouge en X
+                    if (worldX > gp.player1.worldX) {
+                        direction = "left"; // Le monstre est à droite, il va à gauche
+                    } else {
+                        direction = "right";
+                    }
+                } else {
+                    // Le joueur est plus loin verticalement, on bouge en Y
+                    if (worldY > gp.player1.worldY) {
+                        direction = "up"; // Le monstre est en bas, il monte
+                    } else {
+                        direction = "down";
+                    }
+                }
+            } 
+            // 3. Si le joueur est trop loin, mouvement aléatoire classique
+            else {
+                Random random = new Random();
+                int i = random.nextInt(100) + 1;
+
+                if(i <= 25) { direction = "up"; }
+                if(i > 25 && i <= 50) { direction = "down"; }
+                if(i > 50 && i <= 75) { direction = "left"; }
+                if(i > 75 && i <= 100) { direction = "right"; }
+            }
 
             actionLockCounter = 0;
         }
     }
-
     public void update() {
         setAction();
 

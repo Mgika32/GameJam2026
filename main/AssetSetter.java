@@ -48,17 +48,7 @@ public class AssetSetter {
 
     public void setDisplayObjectMap4() {
         
-        gp.display[0] = new DoorLab(50); 
-        gp.display[0].worldX = 25 * gp.tileSize;
-        gp.display[0].worldY = 10 * gp.tileSize;
-
-        // 2. Créer un bouton qui ouvre la porte 50
-        gp.display[1] = new boutonPorte(0, 50); 
-        gp.display[1].worldX = 20 * gp.tileSize;
-        gp.display[1].worldY = 15 * gp.tileSize;
-        
-        // 3. Créer un bouton Puzzle (comme avant)
-        gp.display[2] = new boutonPorte(1, -1); // -1 veut dire "Pas de porte directe, c'est un puzzle"
+       
     }
 
     public void setMonsterMap4() {
