@@ -8,15 +8,30 @@ import javax.imageio.ImageIO;
 
 public class Button extends SuperDisplayObject {
     
-    public int state = 0; // 0: Inactif, 1: Actif, 2: Appuyé
+    public int state = 0; // 0: Noir, 1: Bleu, 2: Rouge
     public int buttonID;
-    
-    // On crée trois variables pour stocker nos textures
+    public int doorToOpen = -1; // -1 = Pas de cible (Puzzle)
+    public boolean togglable = false; // Mode Interrupteur ON/OFF
+
     public BufferedImage imgInactif, imgActif, imgAppuye;
 
+    // Constructeur 1 : Simple (Puzzle)
     public Button(int id) {
+        this(id, -1, false);
+    }
+
+    // Constructeur 2 : Avec cible (Ouvre une porte)
+    public Button(int id, int targetDoor) {
+        this(id, targetDoor, false);
+    }
+
+    // Constructeur 3 : Complet (Avec cible + Mode Interrupteur)
+    public Button(int id, int targetDoor, boolean togglable) {
         name = "Button";
         buttonID = id;
+        this.doorToOpen = targetDoor;
+        this.togglable = togglable;
+        
         collision = false;
         solidArea = new Rectangle(4, 4, 24, 24);
         
@@ -25,9 +40,10 @@ public class Button extends SuperDisplayObject {
 
     public void getButtonImages() {
         try {
-            imgInactif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCBlackScreen.png"));
-            imgActif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCBlueScreen.png"));
-            imgAppuye = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/PCRedScreen.png"));
+            // Utilise tes noms de fichiers existants
+            imgInactif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button1.png"));
+            imgActif = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button2.png"));
+            imgAppuye = ImageIO.read(getClass().getResourceAsStream("/res/DisplayObject/button2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -40,18 +56,15 @@ public class Button extends SuperDisplayObject {
 
         BufferedImage image = null;
 
-        // On choisit l'image à dessiner selon l'état
         switch(state) {
             case 0: image = imgInactif; break;
             case 1: image = imgActif; break;
             case 2: image = imgAppuye; break;
         }
         
-        // Dessin du sprite (si l'image est chargée)
         if (image != null) {
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         } else {
-            // Sécurité : si l'image manque, on dessine quand même un petit carré
             g2.fillRect(screenX + 8, screenY + 8, gp.tileSize - 16, gp.tileSize - 16);
         }
     }
